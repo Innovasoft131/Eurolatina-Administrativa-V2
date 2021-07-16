@@ -195,7 +195,7 @@
                   <p>Empleado</p>
                 </a>
               </li>
-
+ 
               <li class="nav-item">
                 <a href="reporteErrores" class="nav-link">
                   <i class="nav-icon fas fa-ban"></i>
