@@ -169,6 +169,73 @@
 
           <?php } ?>
 
+          <?php 
+              if($_SESSION["perfil"] == "Especial"){
+
+            ?>
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                CRM
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="reportes" class="nav-link">
+                <i class="nav-icon fas fa-store"></i>
+                  <p>Presupuesto</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="reportesUsuario" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>Empleado</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="reporteErrores" class="nav-link">
+                  <i class="nav-icon fas fa-ban"></i>
+                  <p>Configuración CRM</p>
+                  <i class="right fas fa-angle-left"></i>
+                </a>
+                <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="reportes" class="nav-link">
+                <i class="nav-icon fas fa-store"></i>
+                  <p>Porcentaje de éxito</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="reportesUsuario" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>Tipo de Acción</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="reporteErrores" class="nav-link">
+                  <i class="nav-icon fas fa-ban"></i>
+                  <p>Unidad</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="reporteErrores" class="nav-link">
+                  <i class="nav-icon fas fa-ban"></i>
+                  <p>Estado</p>
+                </a>
+              </li>
+             
+            </ul>
+              </li>
+             
+            </ul>
+          </li>
+          <?php } ?>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
