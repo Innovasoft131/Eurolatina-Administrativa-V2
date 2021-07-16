@@ -1,0 +1,8 @@
+{
+    "conexion":{
+        "server": "108.179.194.14",
+        "user" : "eurolati_juanjo",
+        "password" : "Juan.3546+",
+        "database" : "eurolati_eurolatina"
+    }
+}

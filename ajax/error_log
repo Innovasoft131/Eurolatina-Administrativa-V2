@@ -1,0 +1,239 @@
+[07-Jun-2021 16:11:09 America/Mexico_City] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (1623100269) at position 8 (6): Unexpected character in /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php:86
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(86): DateTime->__construct('1623100269')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(137): generarReporte->body()
+#2 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php on line 86
+[07-Jun-2021 16:12:35 America/Mexico_City] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (1623100355) at position 8 (5): Unexpected character in /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php:86
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(86): DateTime->__construct('1623100355')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(137): generarReporte->body()
+#2 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php on line 86
+[07-Jun-2021 16:12:53 America/Mexico_City] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (1623100373) at position 8 (7): Unexpected character in /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php:86
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(86): DateTime->__construct('1623100373')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(137): generarReporte->body()
+#2 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php on line 86
+[07-Jun-2021 16:17:41 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(139): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:18:23 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(139): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:23:09 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(140): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:24:08 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(140): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:29:01 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(142): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:30:42 America/Mexico_City] PHP Fatal error:  Uncaught Exception: DateTime::__construct(): Failed to parse time string (Y-m-d H:i:s) at position 1 (-): Unexpected character in /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php:85
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(85): DateTime->__construct('Y-m-d H:i:s')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(141): generarReporte->body()
+#2 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php on line 85
+[07-Jun-2021 16:32:23 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:35:07 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:35:48 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:36:51 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:38:34 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:52:24 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:52:50 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:53:21 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:54:14 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:56:14 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:57:54 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 16:58:06 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 17:02:27 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 17:04:30 America/Mexico_City] PHP Fatal error:  Uncaught Error: Call to undefined function pluralize() in /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php:91
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(143): generarReporte->body()
+#1 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php on line 91
+[07-Jun-2021 17:34:33 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(142): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 17:34:59 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(142): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 17:35:42 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(142): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 17:37:21 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 17:40:48 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 17:45:32 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(144): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 17:47:31 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(145): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 17:59:23 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(145): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[07-Jun-2021 18:02:35 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteMaquinas.pdf.php(145): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[08-Jun-2021 14:37:14 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteProblemas.pdf.php(141): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[08-Jun-2021 14:37:23 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteProblemas.pdf.php(141): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
+[08-Jun-2021 14:42:16 America/Mexico_City] PHP Fatal error:  Uncaught Exception: FPDF error: Some data has already been output, can't send PDF file in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(1060): FPDF->Error('Some data has a...')
+#1 /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home2/systems3/public_html/Innovasoft/administrativa/ajax/reporteProblemas.pdf.php(143): FPDF->Output()
+#3 {main}
+  thrown in /home2/systems3/public_html/Innovasoft/administrativa/vistas/plugins/fpdf/fpdf.php on line 271
