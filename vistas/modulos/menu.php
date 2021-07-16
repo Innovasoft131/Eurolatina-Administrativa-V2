@@ -192,7 +192,7 @@
               <li class="nav-item">
                 <a href="reportesUsuario" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
-                  <p>Empleado</p>
+                  <p>Oportunidad</p>
                 </a>
               </li>
  

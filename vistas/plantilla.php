@@ -88,6 +88,12 @@ session_start();
                 $_GET["ruta"]=="reporteMaquinas" ||
                 $_GET["ruta"]=="lineas" ||
                 $_GET["ruta"]=="combinacion" ||
+                $_GET["ruta"]=="presupuesto" ||
+                $_GET["ruta"]=="oportunidad" ||
+                $_GET["ruta"]=="porcentajeExito" ||
+                $_GET["ruta"]=="tipoAccion" ||
+                $_GET["ruta"]=="unidad" ||
+                $_GET["ruta"]=="estado" ||
                 $_GET["ruta"]=="salir"){
                     include "modulos/".$_GET["ruta"].".php";
                 }else{
