@@ -204,27 +204,27 @@
                 </a>
                 <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="reportes" class="nav-link">
+                <a href="porcentajeExito" class="nav-link">
                 <i class="nav-icon fas fa-store"></i>
                   <p>Porcentaje de éxito</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="reportesUsuario" class="nav-link">
+                <a href="tipoAccion" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
                   <p>Tipo de Acción</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="reporteErrores" class="nav-link">
+                <a href="unidad" class="nav-link">
                   <i class="nav-icon fas fa-ban"></i>
                   <p>Unidad</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="reporteErrores" class="nav-link">
+                <a href="estado" class="nav-link">
                   <i class="nav-icon fas fa-ban"></i>
                   <p>Estado</p>
                 </a>
