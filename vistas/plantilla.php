@@ -125,6 +125,7 @@ session_start();
             echo '<script src="vistas/js/combinacion.js"></script>';
             echo '<script src="vistas/js/defectuosas.js"></script>';
             echo '<script src="vistas/js/unidad.js"></script>';
+            echo '<script src="vistas/js/estado.js"></script>';
             echo '</body>';
         }else{
             echo '<body class="hold-transition  layout-fixed  login-page">';
