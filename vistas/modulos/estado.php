@@ -24,7 +24,7 @@
       <div class="card">
         <div class="card-header">
           
-        <button class="btn btn-primary" data-toggle="modal" data-target="#agregarEstado"> <i class="fas fa-plus"></i> Agregar Unidad </button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#agregarEstado"> <i class="fas fa-plus"></i> Agregar Estado </button>
 
         </div>
         <div class="card-body">
@@ -33,7 +33,7 @@
                 <thead>
                   <tr>
                   <th style="width:10px">#</th>
-                  <th>Problema</th>
+                  <th>Estado</th>
                   <th>Acciones</th>
 
                   </tr>
@@ -51,7 +51,7 @@
                                     <td>'.$value['estado'].'</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button class="btn btn-warning btnEditaridEstado" idEstado='.$value['id'].'  data-toggle="modal" data-target="#modalEditaridUnidad"><i class="fas fa-pen"></i></button>
+                                            <button class="btn btn-warning btnEditaridEstado" idEstado='.$value['id'].'  data-toggle="modal" data-target="#modalEditaridEstado"><i class="fas fa-pen"></i></button>
                                             <button class="btn btn-danger btnEliminaridEstado" idEstado='.$value['id'].'><i class="fa fa-times"></i></button>
                                         </div>
                                     </td>
@@ -82,7 +82,7 @@
     <div class="modal-content">
       <form role="form" method="post" autocomplete="off">
           <div class="modal-header" style="background: #3c8dbc; color: white;">
-            <h5 class="modal-title" id="exampleModalLabel">Agregar Unidad</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Agregar Estado</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -120,7 +120,7 @@
 </div>
 
   <!-- Modal Edicion -->
-  <div class="modal fade" id="modalEditaridUnidad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalEditaridEstado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <form role="form" method="post" autocomplete="off">
@@ -140,7 +140,7 @@
                       <span class="fas fa-file-alt"></span>
                     </div>
                   </div>
-                  <input type="text" class="form-control" name="editarEstado" id="editarEstado" placeholder="Unidad" require>
+                  <input type="text" class="form-control" name="editarEstado" id="editarEstado" placeholder="Estado" require>
                   <input type="hidden" class="form-control" name="idEstado" id="idEstado" >
                 </div>
               </div>

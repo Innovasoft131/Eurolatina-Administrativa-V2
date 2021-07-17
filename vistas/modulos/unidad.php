@@ -33,7 +33,7 @@
                 <thead>
                   <tr>
                   <th style="width:10px">#</th>
-                  <th>Problema</th>
+                  <th>Unidad</th>
                   <th>Acciones</th>
 
                   </tr>
@@ -43,9 +43,9 @@
                         $item = null;
                         $valor = null;
                         
-                        $problemas = UnidadControlador::ctrMostrarUnidades($item, $valor);
+                        $unidad = UnidadControlador::ctrMostrarUnidades($item, $valor);
 
-                        foreach ($problemas as $key => $value) {
+                        foreach ($unidad as $key => $value) {
                             echo '<tr>
                                     <td>'.$key.'</td>
                                     <td>'.$value['unidad'].'</td>

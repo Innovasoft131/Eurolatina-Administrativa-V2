@@ -20,7 +20,7 @@ class UnidadControlador{
 					Swal.fire({
 
 						icon: "success",
-						title: "¡El problema ha sido guardado correctamente!",
+						title: "¡la unidad ha sido guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -43,7 +43,7 @@ class UnidadControlador{
 				Swal.fire({
 
 						icon: "error",
-						title: "¡El problema no puede ir vacío o llevar caracteres especiales!",
+						title: "¡La unidad no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -95,7 +95,7 @@ class UnidadControlador{
 					Swal.fire({
 
 						icon: "success",
-						title: "¡El problema ha sido editado correctamente!",
+						title: "¡La unidad ha sido editado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -118,7 +118,7 @@ class UnidadControlador{
 				Swal.fire({
 
 						icon: "error",
-						title: "¡El problema no puede ir vacío o llevar caracteres especiales!",
+						title: "¡La unidad no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -155,7 +155,7 @@ class UnidadControlador{
 
 				Swal.fire({
 					icon: "success",
-					title: "El problema ha sido borrado correctamente",
+					title: "La unidad ha sido borrado correctamente",
 					showConfirmButton: true,
 					confirmButtonText: "Cerrar"
 					}).then(function(result){
