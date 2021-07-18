@@ -12,6 +12,8 @@ session_start();
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="vistas/plugins/fontawesome-free/css/all.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="vistas/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <link rel="icon" href="vistas/img/plantilla/euroLatina.ico">
   <!-- DataTables -->
   <link rel="stylesheet" href="vistas/plugins/datatables/datatables.min.css">
@@ -39,6 +41,9 @@ session_start();
    <!-- AdminLTE for demo purposes --> 
    <script src="vistas/dist/js/demo.js"></script>
 
+   <!-- overlayScrollbars -->
+   <script src="vistas/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
    <!-- DataTables  & Plugins -->
    <script src="vistas/plugins/datatables/jquery.dataTables.js"></script>
    <script src="vistas/plugins/datatables/DataTables-1.10.23/js/dataTables.bootstrap4.js"></script>
@@ -59,7 +64,7 @@ session_start();
     <?php
 
         if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
-            echo '<body class="hold-transition sidebar-collapse layout-fixed sidebar-mini">';
+            echo '<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse">';
             echo '<div class="wrapper">';
             // menu secundario
             include "modulos/cabezote.php";
