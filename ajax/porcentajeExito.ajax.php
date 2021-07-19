@@ -22,10 +22,10 @@ class AjaxPorcentaje{
 
 	public function ajaxValidarUnidad(){
 
-		$item = "unidad";
+		$item = "etapa";
 		$valor = $this->validarUnidad;
 
-		$respuesta = UnidadControlador::ctrMostrarUnidades($item, $valor);
+		$respuesta = PorcentajeExitoControlador::ctrMostrarPorcentajes($item, $valor);
 
 		echo json_encode($respuesta);
 
@@ -42,10 +42,10 @@ if(isset($_POST['idporcentaje'])){
 VALIDAR NO REPETIR UNIDAD
 =============================================*/
 
-if(isset( $_POST["validarUnidad"])){
+if(isset( $_POST["validarPorcentaje"])){
 
 	$ajaxUnidad = new AjaxPorcentaje();
-	$ajaxUnidad -> validarUnidad = $_POST["validarUnidad"];
+	$ajaxUnidad -> validarUnidad = $_POST["validarPorcentaje"];
 	$ajaxUnidad -> ajaxValidarUnidad();
 
 }

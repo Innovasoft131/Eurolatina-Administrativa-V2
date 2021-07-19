@@ -107,8 +107,6 @@
                   <input type="text" class="form-control" name="etapa" id="etapa" placeholder="Etapa" require>
                 </div>
               </div>
-
-
             </div>
 
             

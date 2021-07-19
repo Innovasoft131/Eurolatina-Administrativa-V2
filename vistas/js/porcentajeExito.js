@@ -41,3 +41,70 @@ $(document).on("click", ".btnEliminarPorcentaje", function(){
       });
 });
 
+/*=============================================
+REVISAR SI LA UNIDAD YA ESTÁ REGISTRADO DURANTA EL INSERT
+=============================================*/
+
+$(document).on("keyup", "#etapa", function(){
+	$(".alert").remove();
+	
+	var unidad = $(this).val();
+
+	var datos = new FormData();
+	datos.append("validarPorcentaje", unidad);
+
+	 $.ajax({
+	    url:"ajax/porcentajeExito.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+	    	
+	    	if(respuesta){
+
+	    		$("#etapa").parent().after('<div class="alert alert-warning">Esta Etapa ya existe en la base de datos</div>');
+
+	    		$("#etapa").val("");
+	    	}
+	    }
+	});
+});
+
+/*=============================================
+REVISAR SI LA UNIDAD YA ESTÁ REGISTRADO DURANTA EL UPDATE
+=============================================*/
+
+$(document).on("keyup", "#editaretapa", function(){
+	$(".alert").remove();
+	
+	var unidad = $(this).val();
+
+	var datos = new FormData();
+	datos.append("validarPorcentaje", unidad);
+
+	 $.ajax({
+	    url:"ajax/porcentajeExito.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+	    	
+	    	if(respuesta){
+
+	    		$("#editaretapa").parent().after('<div class="alert alert-warning">Esta Etapa ya existe en la base de datos</div>');
+
+	    		$("#editaretapa").val("");
+
+	    	}
+
+	    }
+
+	});
+});
+
