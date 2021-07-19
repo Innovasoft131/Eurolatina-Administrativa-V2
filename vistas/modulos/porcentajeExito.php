@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Unidad de Medida</h1>
+            <h1>Porcentaje de Exitó</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
-              <li class="breadcrumb-item active">Unidad</li>
+              <li class="breadcrumb-item active">PorcentajeExitó</li>
             </ol>
           </div>
         </div>
@@ -24,7 +24,7 @@
       <div class="card">
         <div class="card-header">
           
-        <button class="btn btn-primary" data-toggle="modal" data-target="#agregarUnidad"> <i class="fas fa-plus"></i> Agregar Unidad </button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#agregarUnidad"> <i class="fas fa-plus"></i> Agregar Porcentaje </button>
 
         </div>
         <div class="card-body">
@@ -33,7 +33,8 @@
                 <thead>
                   <tr>
                   <th style="width:10px">#</th>
-                  <th>Unidad</th>
+                  <th>Etapa</th>
+                  <th>Exitó</th>
                   <th>Acciones</th>
 
                   </tr>
@@ -43,29 +44,27 @@
                         $item = null;
                         $valor = null;
                         
-                        $unidad = UnidadControlador::ctrMostrarUnidades($item, $valor);
-
+                        $unidad = PorcentajeExitoControlador::ctrMostrarPorcentajes($item, $valor);
+                        
                         foreach ($unidad as $key => $value) {
+                         
                             echo '<tr>
                                     <td>'.$key.'</td>
-                                    <td>'.$value['unidad'].'</td>
+                                    <td>'.$value['etapa'].'</td>
+                                    <td>'.$value['exito'].'</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button class="btn btn-warning btnEditaridUnidad" idUnidad='.$value['id'].'  data-toggle="modal" data-target="#modalEditaridUnidad"><i class="fas fa-pen"></i></button>
-                                            <button class="btn btn-danger btnEliminaridUnidad" idUnidad='.$value['id'].'><i class="fa fa-times"></i></button>
+                                            <button class="btn btn-warning btnEditaridPorcentaje" idporcentaje='.$value['id'].'  data-toggle="modal" data-target="#modalEditaridUnidad"><i class="fas fa-pen"></i></button>
+                                            <button class="btn btn-danger btnEliminarPorcentaje" idporcentaje='.$value['id'].'><i class="fa fa-times"></i></button>
                                         </div>
                                     </td>
                                 </tr>';
                         }
-                    ?>
-                            
-                        
-                    
+                    ?>   
                 </tbody>
               </table>
             </div>
         </div>
-
       </div>
       <!-- /.card -->
 
@@ -82,7 +81,7 @@
     <div class="modal-content">
       <form role="form" method="post" autocomplete="off">
           <div class="modal-header" style="background: #3c8dbc; color: white;">
-            <h5 class="modal-title" id="exampleModalLabel">Agregar Unidad</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Agregar Porcentaje Exitó</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -97,7 +96,15 @@
                       <span class="fas fa-ruler-horizontal"></span>
                     </div>
                   </div>
-                  <input type="text" class="form-control" name="nuevaUnidad" id="nuevaUnidad" placeholder="Unidad" require>
+                  <input type="text" class="form-control" name="exito" id="exito" placeholder="Exitó" require>
+                </div>
+                <div class="input-group mt-2">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-ruler-horizontal"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="etapa" id="etapa" placeholder="Etapa" require>
                 </div>
               </div>
 
@@ -111,8 +118,8 @@
             <button type="submit" class="btn btn-primary" style="background: #3c8dbc; color: white">Guardar</button>
           </div>
           <?php
-                $crearUnidad = new UnidadControlador();
-                $crearUnidad -> ctrInsertUnidad();
+                $crearPorcentaje = new PorcentajeExitoControlador();
+                $crearPorcentaje -> ctrInsertPorcentaje();
           ?>
         </form>
     </div>
@@ -140,19 +147,30 @@
                       <span class="fas fa-file-alt"></span>
                     </div>
                   </div>
-                  <input type="text" class="form-control" name="editarUnidad" id="editarUnidad" placeholder="Unidad" require>
-                  <input type="hidden" class="form-control" name="idUnidad" id="idUnidad" >
+                  <input type="text" class="form-control" name="editarexito" id="editarexito" placeholder="Exito" require>
+                  
+                </div>
+                <div class="input-group mt-3">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-file-alt"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="editaretapa" id="editaretapa" placeholder="Etapa" require>
+                  <input type="hidden" class="form-control" name="idporcentaje" id="idporcentaje" >
                 </div>
               </div>
-            </div>  
+            </div>
+
+            
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary"  data-dismiss="modal">Cerrar</button>
             <button type="submit" class="btn btn-dark">Guardar</button>
           </div>
           <?php
-                $editarUnidad = new UnidadControlador();
-                $editarUnidad -> ctrUpdateUnidad();
+                $editarUnidad = new PorcentajeExitoControlador();
+                $editarUnidad -> ctrUpdatePorcentaje();
           ?>
         </form>
     </div>
@@ -160,9 +178,7 @@
 </div>
 
 <?php
-
-  $borrarUnidad = new UnidadControlador();
-  $borrarUnidad -> ctrEliminarUnidad();
-
+  $borrarUnidad = new PorcentajeExitoControlador();
+  $borrarUnidad -> ctrEliminarPorcentaje();
 ?> 
 

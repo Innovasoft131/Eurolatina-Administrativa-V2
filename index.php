@@ -18,6 +18,7 @@ require_once "controladores/lineas.controlador.php";
 require_once "controladores/combinacion.controlador.php";
 require_once "controladores/unidad.controlador.php";
 require_once "controladores/estado.controlador.php";
+require_once "controladores/porcentajeExito.controlador.php";
 
 // se requiere utilizar los modelos
 require_once "modelos/usuarios.modelo.php";
@@ -37,6 +38,7 @@ require_once "modelos/lineas.modelo.php";
 require_once "modelos/combinacion.modelo.php";
 require_once "modelos/unidad.modelo.php";
 require_once "modelos/estado.modelo.php";
+require_once "modelos/porcentajeexito.modelo.php";
 
 // Librerias
 

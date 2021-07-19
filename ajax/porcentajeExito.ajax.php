@@ -1,15 +1,15 @@
 <?php
-require_once "../controladores/unidad.controlador.php";
-require_once "../modelos/unidad.modelo.php";
-class AjaxUnidad{
-    public $idUnidad;
+require_once "../controladores/porcentajeExito.controlador.php";
+require_once "../modelos/porcentajeexito.modelo.php";
+class AjaxPorcentaje{
+    public $idporcentaje;
 
-    public function obtenerUnidad(){
+    public function obtenerPorcentaje(){
         $item = "id";
-		$valor = $this->idUnidad;
-
-		$respuesta = UnidadControlador::ctrMostrarUnidades($item, $valor);
-
+		$valor = $this->idporcentaje;
+        
+		$respuesta = PorcentajeExitoControlador::ctrMostrarPorcentajes($item, $valor);
+        
 		echo json_encode($respuesta);
     }
 
@@ -30,14 +30,12 @@ class AjaxUnidad{
 		echo json_encode($respuesta);
 
 	}
-
-
-} 
-
-if(isset($_POST['idUnidad'])){
-    $ajaxUnidad = new AjaxUnidad();
-    $ajaxUnidad -> idUnidad = $_POST['idUnidad'];
-    $ajaxUnidad -> obtenerUnidad();
+}
+  
+if(isset($_POST['idporcentaje'])){
+    $ajaxUnidad = new AjaxPorcentaje();
+    $ajaxUnidad -> idporcentaje = $_POST['idporcentaje'];
+    $ajaxUnidad -> obtenerPorcentaje();
 }
 
 /*=============================================
@@ -46,7 +44,7 @@ VALIDAR NO REPETIR UNIDAD
 
 if(isset( $_POST["validarUnidad"])){
 
-	$ajaxUnidad = new AjaxUnidad();
+	$ajaxUnidad = new AjaxPorcentaje();
 	$ajaxUnidad -> validarUnidad = $_POST["validarUnidad"];
 	$ajaxUnidad -> ajaxValidarUnidad();
 

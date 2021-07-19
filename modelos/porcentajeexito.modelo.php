@@ -2,18 +2,18 @@
 
 require_once "conexion.php";
 
-class ModeloUnidad{
+class ModeloPorcentajeExito{
     /*=============================================
 	REGISTRO DE UNIDADES
 	=============================================*/
 
-	static public function mdlInsertUnidades($tabla, $datos){
+	static public function mdlInsertPorcentaje($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id, unidad) VALUES (null, :unidad)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id, etapa, exito) VALUES (null, :etapa,:exito)");
 	
 		
-		$stmt->bindParam(":unidad", $datos["unidad"], PDO::PARAM_STR);
-
+		$stmt->bindParam(":etapa", $datos["etapa"], PDO::PARAM_STR);
+		$stmt->bindParam(":exito", $datos["exito"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 
@@ -32,10 +32,10 @@ class ModeloUnidad{
 	}
 
     /*=============================================
-	MOSTRAR UNIDADES
+	MOSTRAR PROCENTAJES EXITO
 	=============================================*/
 
-	static public function mdlMostrarUnidades($tabla, $item, $valor){
+	static public function mdlMostrarPorcentajesExito($tabla, $item, $valor){
 	
 		if($item != null){
 
@@ -67,12 +67,13 @@ class ModeloUnidad{
 	EDITAR DE UNIDADES
 	=============================================*/
 
-	static public function mdlUpdateUnidad($tabla, $datos){
-
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET unidad = :unidad WHERE id = :id");
+	static public function mdlUpdatePorcentaje($tabla, $datos){
+		
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET etapa = :etapa, exito= :exito WHERE id = :id");
 
 		
-		$stmt->bindParam(":unidad", $datos["unidad"], PDO::PARAM_STR);
+		$stmt->bindParam(":etapa", $datos["etapa"], PDO::PARAM_STR);
+		$stmt->bindParam(":exito", $datos["exito"], PDO::PARAM_STR);
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_STR);
 
 
@@ -94,10 +95,10 @@ class ModeloUnidad{
 
 
     /*=============================================
-	BORRAR UNIDAD
+	BORRAR PORCENTAJE EXITO
 	=============================================*/
 
-	static public function mdlBorrarUnidad($tabla, $datos){
+	static public function mdlBorrarPorcentaje($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 

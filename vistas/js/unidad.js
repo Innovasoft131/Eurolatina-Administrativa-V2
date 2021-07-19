@@ -4,7 +4,6 @@ $(document).on("click", ".btnEditaridUnidad", function(){
 	datos.append("idUnidad", idUnidad);
 
     $.ajax({
-
 		url:"ajax/unidad.ajax.php",
 		method: "POST",
 		data: datos,
@@ -15,7 +14,6 @@ $(document).on("click", ".btnEditaridUnidad", function(){
 		success: function(respuesta){
             $("#editarUnidad").val(respuesta["unidad"]);
             $("#idUnidad").val(respuesta["id"]);
-
 		}
 
 	});
