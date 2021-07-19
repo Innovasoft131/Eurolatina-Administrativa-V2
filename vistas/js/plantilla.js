@@ -3,7 +3,6 @@ Data Table
 =============================================*/
 
 $(".tablas").DataTable({
-
 	"language": {
 
 		"sProcessing":     "Procesando...",

@@ -99,6 +99,7 @@ session_start();
                 $_GET["ruta"]=="tipoAccion" ||
                 $_GET["ruta"]=="unidad" ||
                 $_GET["ruta"]=="estado" ||
+                $_GET["ruta"]=="tablero" ||
                 $_GET["ruta"]=="salir"){
                     include "modulos/".$_GET["ruta"].".php";
                 }else{

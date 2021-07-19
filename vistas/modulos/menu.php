@@ -190,7 +190,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="reportesUsuario" class="nav-link">
+                <a href="oportunidad" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
                   <p>Oportunidad</p>
                 </a>
