@@ -133,8 +133,12 @@ session_start();
             echo '<script src="vistas/js/unidad.js"></script>';
             echo '<script src="vistas/js/estado.js"></script>';
             echo '<script src="vistas/js/porcentajeExito.js"></script>';
+<<<<<<< Updated upstream
 
             echo '<script src="vistas/js/oportunidad.js"></script>';
+=======
+            echo '<script src="vistas/js/tipoaccion.js"></script>';
+>>>>>>> Stashed changes
             echo '</body>';
         }else{
             echo '<body class="hold-transition  layout-fixed  login-page">';
