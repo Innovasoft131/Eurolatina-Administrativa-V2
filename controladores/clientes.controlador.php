@@ -7,6 +7,7 @@ class ControladorClientes{
 	=============================================*/
 
 	static public function ctrCrearCliente(){
+
 		if(isset($_POST["nuevoUsuario"])){
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
 			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
@@ -89,42 +90,75 @@ class ControladorClientes{
 					           "foto"=>$ruta,
 							   "correo" => $_POST["nuevoCorreo"],
                                "telefono" => $_POST["nuevoTelefono"],
-                               "direccion" => $_POST["nuevoDireccion"]);
+                               "direccion" => $_POST["nuevoDireccion"],
+							   "empresa" => $_POST["nuevoEmpresa"],
+							   "web" => $_POST["nuevoWeb"],
+							   "tipo" => $_POST["nuevoTipo"]);
 				
 				$respuesta = Modeloclientes::mdlIngresarCliente($tabla, $datos);
 
 				
 			
 				if($respuesta == "ok"){
-
-					echo '<script>
-
-					Swal.fire({
-
-						icon: "success",
-						title: "¡El usuario ha sido guardado correctamente!",
-						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
-
-					}).then(function(result){
-
-						if(result.value){
+					if($_POST["modelo"] == "oportunidad"){
+					
+						echo '<script>
+						Swal.fire({
+	
+							icon: "success",
+							title: "¡El Cliente ha sido guardado correctamente!",
+							showConfirmButton: true,
+							confirmButtonText: "Cerrar"
+	
+						}).then(function(result){
+	
+							if(result.value){
+							
+								window.location = "oportunidad";
+								$("#opofolio").val("'.$_POST["reFolio"].'");
+								$("#opoEmpleado").val("'.$_POST["reEmpleado"].'");
+	
+							}
+	
+						});
+					
+	
+						</script>';
 						
-							window.location = "clientes";
 
-						}
+					}else{
+						
+						echo '<script>
 
-					});
-				
+						Swal.fire({
+	
+							icon: "success",
+							title: "¡El Cliente ha sido guardado correctamente!",
+							showConfirmButton: true,
+							confirmButtonText: "Cerrar"
+	
+						}).then(function(result){
+	
+							if(result.value){
+							
+								window.location = "clientes";
+	
+							}
+	
+						});
+					
+	
+						</script>';
+						
+					}
 
-					</script>';
 
 
 				}	
 
 
 			}else{
-
+				
 				echo '<script>
 
 				Swal.fire({
@@ -146,6 +180,7 @@ class ControladorClientes{
 				
 
 				</script>';
+				
 
 			}
 

@@ -43,7 +43,7 @@ class Modeloclientes{
 
 	static public function mdlIngresarCliente($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO clientes(nombre, usuario, password, foto, correo, telefono, direccion) VALUES (:nombre, :usuario, :password, :foto, :correo, :telefono, :direccion)");		
+		$stmt = Conexion::conectar()->prepare("INSERT INTO clientes(nombre, usuario, password, foto, correo, telefono, direccion, empresa, web, tipo) VALUES (:nombre, :usuario, :password, :foto, :correo, :telefono, :direccion, :empresa, :web, :tipo)");		
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
 		$stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);
@@ -51,6 +51,9 @@ class Modeloclientes{
         $stmt->bindParam(":correo", $datos["correo"], PDO::PARAM_STR);
         $stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
         $stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
+		$stmt->bindParam(":empresa", $datos["empresa"], PDO::PARAM_STR);
+		$stmt->bindParam(":web", $datos["web"], PDO::PARAM_STR);
+		$stmt->bindParam(":tipo", $datos["tipo"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 
