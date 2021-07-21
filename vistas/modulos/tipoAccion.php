@@ -125,7 +125,7 @@
     <div class="modal-content">
       <form role="form" method="post" autocomplete="off">
           <div class="modal-header" style="background:#343a40; color:white">
-            <h5 class="modal-title" id="exampleModalLabel">Editar Unidad</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Editar Accion</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -140,7 +140,7 @@
                       <span class="fas fa-file-alt"></span>
                     </div>
                   </div>
-                  <input type="text" class="form-control" name="editarAccion" id="editarAccion" placeholder="Unidad" require>
+                  <input type="text" class="form-control" name="editarAccion" id="editarAccion" placeholder="Accion" require>
                   <input type="hidden" class="form-control" name="idAccion" id="idAccion" >
                 </div>
               </div>

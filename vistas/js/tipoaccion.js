@@ -12,7 +12,7 @@ $(document).on("click", ".btnEditarAccion", function(){
 		processData: false,
 		dataType: "json",
 		success: function(respuesta){
-			alert(respuesta);
+			
             $("#editarAccion").val(respuesta["accion"]);
             $("#idAccion").val(respuesta["id"]);
 		}
