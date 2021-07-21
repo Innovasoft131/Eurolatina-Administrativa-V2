@@ -1,7 +1,6 @@
 $(document).on("click", ".btnEditarAccion", function(){
     var idAccion = $(this).attr('idAccion');
     var datos = new FormData();
-	alert(idAccion);
 	datos.append("idAccion", idAccion);
       
     $.ajax({
@@ -24,8 +23,6 @@ $(document).on("click", ".btnEditarAccion", function(){
 
 $(document).on("click", ".btnEliminaridUnidad", function(){
     var idAccion = $(this).attr('idAccion');
-
-
     Swal.fire({
         title: '¿Está seguro de borrar la accion?',
         text: "¡Si no lo está puede cancelar la accíón!",
