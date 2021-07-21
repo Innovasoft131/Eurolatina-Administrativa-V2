@@ -51,7 +51,7 @@
                                     <td>'.$value['accion'].'</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button class="btn btn-warning btnEditaridUnidad" idAccion='.$value['id'].'  data-toggle="modal" data-target="#modalEditaridUnidad"><i class="fas fa-pen"></i></button>
+                                            <button class="btn btn-warning btnEditarAccion" idAccion='.$value['id'].'  data-toggle="modal" data-target="#modalEditaridUnidad"><i class="fas fa-pen"></i></button>
                                             <button class="btn btn-danger btnEliminaridUnidad" idAccion='.$value['id'].'><i class="fa fa-times"></i></button>
                                         </div>
                                     </td>
@@ -151,7 +151,7 @@
             <button type="submit" class="btn btn-dark">Guardar</button>
           </div>
           <?php
-                $editarUnidad = new UnidadControlador();
+                $editarUnidad = new tipoaccionControlador();
                 $editarUnidad -> ctrUpdateUnidad();
           ?>
         </form>
@@ -161,7 +161,7 @@
 
 <?php
 
-  $borrarUnidad = new UnidadControlador();
+  $borrarUnidad = new tipoaccionControlador();
   $borrarUnidad -> ctrEliminarUnidad();
 
 ?> 

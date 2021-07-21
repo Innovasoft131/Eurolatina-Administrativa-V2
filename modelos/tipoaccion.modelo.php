@@ -69,10 +69,10 @@ class ModeloTipoAccion{
 
 	static public function mdlUpdateUnidad($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET unidad = :unidad WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET accion = :unidad WHERE id = :id");
 
 		
-		$stmt->bindParam(":unidad", $datos["unidad"], PDO::PARAM_STR);
+		$stmt->bindParam(":unidad", $datos["accion"], PDO::PARAM_STR);
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_STR);
 
 

@@ -81,13 +81,13 @@ class tipoaccionControlador{
     static public function ctrUpdateUnidad(){
         if(isset($_POST["editarAccion"])){
             if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarAccion"])){
-                $tabla = "unidad";
+                $tabla = "tipoaccion";
                 $datos = array(
-                    "id" => $_POST["idaccion"],
+                    "id" => $_POST["idAccion"],
                     "accion" => $_POST["editarAccion"]
                 );
 
-                $respuestas = ModeloUnidad::mdlUpdateUnidad($tabla,$datos);
+                $respuestas = ModeloTipoAccion::mdlUpdateUnidad($tabla,$datos);
 
                 if($respuestas == "ok"){
                     echo '<script>
@@ -144,7 +144,7 @@ class tipoaccionControlador{
     static public function ctrEliminarUnidad(){
 		if(isset($_GET["idAccion"])){
 
-			$tabla ="unidad";
+			$tabla ="tipoaccion";
 			$datos = $_GET["idAccion"];
 
 			$respuesta = ModeloTipoAccion::mdlBorrarAccion($tabla, $datos);

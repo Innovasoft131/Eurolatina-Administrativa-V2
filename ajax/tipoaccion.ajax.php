@@ -35,8 +35,9 @@ class AjaxAccion{
 } 
 
 if(isset($_POST['idAccion'])){
+	
     $ajaxUnidad = new AjaxAccion();
-    $ajaxUnidad -> idUnidad = $_POST['idAccion'];
+    $ajaxUnidad -> idAccion = $_POST['idAccion'];
     $ajaxUnidad -> obtenerAccion();
 }
 

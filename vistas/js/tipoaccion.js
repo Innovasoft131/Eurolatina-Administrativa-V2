@@ -1,8 +1,9 @@
-$(document).on("click", ".btnEditaridUnidad", function(){
-    var idUnidad = $(this).attr('idAccion');
+$(document).on("click", ".btnEditarAccion", function(){
+    var idAccion = $(this).attr('idAccion');
     var datos = new FormData();
-	datos.append("idAccion", idUnidad);
-
+	alert(idAccion);
+	datos.append("idAccion", idAccion);
+      
     $.ajax({
 		url:"ajax/tipoaccion.ajax.php",
 		method: "POST",
@@ -12,6 +13,7 @@ $(document).on("click", ".btnEditaridUnidad", function(){
 		processData: false,
 		dataType: "json",
 		success: function(respuesta){
+			alert(respuesta);
             $("#editarAccion").val(respuesta["accion"]);
             $("#idAccion").val(respuesta["id"]);
 		}
@@ -21,23 +23,23 @@ $(document).on("click", ".btnEditaridUnidad", function(){
 
 
 $(document).on("click", ".btnEliminaridUnidad", function(){
-    var idUnidad = $(this).attr('idUnidad');
+    var idAccion = $(this).attr('idAccion');
 
 
     Swal.fire({
-        title: '¿Está seguro de borrar la unidad?',
+        title: '¿Está seguro de borrar la accion?',
         text: "¡Si no lo está puede cancelar la accíón!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           cancelButtonText: 'Cancelar',
-          confirmButtonText: 'Si, borrar unidad!'
+          confirmButtonText: 'Si, borrar accion!'
       }).then(function(result){
     
         if(result.value){
     
-          window.location = "index.php?ruta=unidad&idUnidad="+idUnidad;
+          window.location = "index.php?ruta=tipoAccion&idAccion="+idAccion;
     
         }
     
