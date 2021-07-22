@@ -9,7 +9,7 @@ class ModeloOportunidad{
 
 	static public function mdlInsertOportunidad($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id, codigo, idUsuario, idCliente, empresa, servicio, idPieza, cantidad, importe, idPorcentaje, idAccion, descripcion) VALUES (null, :codigo, :idUsuario, :idCliente, :empresa, :servicio, :idPieza, :cantidad, :importe, :idPorcentaje, :idAccion, :descripcion)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id, codigo, idUsuario, idCliente, empresa, servicio, idPieza, cantidad, importe, idPorcentaje, idAccion, descripcion, estado) VALUES (null, :codigo, :idUsuario, :idCliente, :empresa, :servicio, :idPieza, :cantidad, :importe, :idPorcentaje, :idAccion, :descripcion, 'Pendiente')");
 	
 		
 		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);

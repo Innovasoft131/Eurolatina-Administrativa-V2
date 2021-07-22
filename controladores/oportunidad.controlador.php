@@ -5,6 +5,7 @@ class ControladorOportunidad{
 	INGRESO DE Oportunidad
 	=============================================*/
     static public function ctrInsertOportunidad(){
+
         if(isset($_POST["opoEmpleado"])){
             if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["opofolio"]) &&
             preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ., ]+$/', $_POST["nuevoEmpresa"]) &&   
@@ -29,9 +30,13 @@ class ControladorOportunidad{
 
                 $respuestas = ModeloOportunidad::mdlInsertOportunidad($tabla,$datos);
 
+                
                 if($respuestas == "ok"){
+                    
                     echo '<script>
-
+                    localStorage.removeItem("folio");
+                    localStorage.removeItem("Idempleado");
+                    localStorage.removeItem("empleado");
 					Swal.fire({
 
 						icon: "success",
@@ -50,9 +55,11 @@ class ControladorOportunidad{
 					});
 
 					</script>';
+                    
                 }
 
             }else{
+                
                 echo '<script>
 
 				Swal.fire({
@@ -72,6 +79,7 @@ class ControladorOportunidad{
 					});
 
 				</script>';
+              
             }
 
         }
@@ -83,7 +91,7 @@ class ControladorOportunidad{
 
 	static public function ctrMostrarOportunidad($item, $valor){
 
-		$tabla = "unidad";
+		$tabla = "oportunidad";
         
 		$respuesta = ModeloOportunidad::mdlMostrarOportunidad($tabla, $item, $valor);
         

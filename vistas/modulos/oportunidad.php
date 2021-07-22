@@ -38,7 +38,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="opofolio">Folio</label>
-                        <input type="text" class="form-control" id="opofolio" placeholder="folio">
+                        <input type="text" class="form-control" id="opofolio"  name="opofolio" placeholder="folio">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="opoEmpleado">Empleado a asignar</label>
@@ -48,7 +48,7 @@
                             
                             $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
                         ?>
-                        <select  id="opoEmpleado"  class="form-control">
+                        <select  id="opoEmpleado" name="opoEmpleado"  class="form-control">
                             <option selected>Selecciona un Empleado</option>
                             <?php foreach ($usuarios as $key => $value) {
                                 echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
@@ -91,7 +91,7 @@
                         <?php 
                             $piezas = ControladorPiezas::obtenerPiezas();
                         ?>
-                        <select id="opoModelo" class="form-control">
+                        <select id="opoModelo" name="opoModelo" class="form-control">
                             <option selected>Selecciona un cliente</option>
                             <?php foreach ($piezas as $key => $value) {
                                 echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
@@ -101,11 +101,11 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="opoCantidad">Cantidad </label>
-                        <input type="number" class="form-control" id="opoCantidad" placeholder="Cantidad">
+                        <input type="number" class="form-control" id="opoCantidad" name="opoCantidad" placeholder="Cantidad">
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">Importe</label>
-                        <input type="number" class="form-control" id="opoImporte" placeholder="Cantidad">
+                        <input type="number" class="form-control" id="opoImporte" name="opoImporte" placeholder="Cantidad">
                     </div>
                 </div>
                 <div class="form-row">
@@ -131,9 +131,17 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="opoAccion">Acción comercial</label>
+                        <?php
+                        $item = null;
+                        $valor = null;
+                        
+                        $accion = tipoaccionControlador::ctrMostrarTipoAccion($item, $valor);
+                        ?>
                         <select id="opoAccion" name="opoAccion" class="form-control">
                             <option selected>Selecciona una Acción</option>
-                            <option>Nuevo</option>
+                            <?php foreach ($accion as $key => $value) {
+                                echo '<option value="'.$value["id"].'">'.$value["accion"].'</option>';
+                            } ?>
                         </select>
                     </div>
                 </div>
@@ -143,6 +151,13 @@
                     
                 </div>
                 <button type="submit" class="btn btn-info">Guardar</button>
+                <?php
+          
+                  $crearOportunidad = new ControladorOportunidad();
+                  $crearOportunidad -> ctrInsertOportunidad();
+          
+
+                ?>
             </form>
         </div>
 
