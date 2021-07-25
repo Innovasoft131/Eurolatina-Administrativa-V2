@@ -184,7 +184,7 @@
              
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="reportes" class="nav-link">
+                <a href="presupuesto" class="nav-link">
                 <i class="nav-icon fas fa-store"></i>
                   <p>Presupuesto</p>
                 </a>
