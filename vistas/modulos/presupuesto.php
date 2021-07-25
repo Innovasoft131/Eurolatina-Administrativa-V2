@@ -32,7 +32,7 @@
                 <thead>
                   <tr>
                     <th style="width:10px">#</th>
-                    <th>Codigo</th>
+                    <th>Codigo Oportunidad</th>
                     <th>Empresa</th>
                     <th>Importe</th>
                     <th>Fecha</th>
@@ -45,7 +45,6 @@
                 $item = null;
                 $valor = null;
                 $respuesta = ControladorPresupuesto::ctrMostrarPresupuestos($item , $valor);
-                var_dump( $respuesta);
                 foreach ($respuesta as $key => $value) {
                     echo '<tr>
                             <td>'.$key.'</td>
@@ -53,10 +52,10 @@
                             <td>'.$value["empresa"].'</td>
                             <td>'.$value["importe"].'</td>
                             <td>'.$value["fecha"].'</td>
-                            <td>'.$value["accion"].'</td>
+                            <td>'.$value["idAccion"].'</td>
                             <td>
                                 <div class="btn-group">
-                                    <button class="btn btn-info btnAsignar" idPedido="'.$value["idPedido"].'" idCliente="'.$value["idCliente"].'" nombreCliente="'.$value["nombreCliente"].'" idPrimerModulo="'.$value["id"].'"   data-toggle="modal" data-target="#asignarMaquina"><i class="fas fa-project-diagram"></i></button>
+                                    <button class="btn btn-success btnAsignar" idoportunidad="'.$value["id"].'" idcliente="'.$value["idCliente"].'" idusuario="'.$value["idUsuario"].'" data-toggle="modal" data-target="#asignarMaquina"><i class="fas fa-play"></i></button>
                                 </div>
                             </td>
                         </tr>';
