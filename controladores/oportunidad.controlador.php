@@ -11,8 +11,7 @@ class ControladorOportunidad{
             preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ., ]+$/', $_POST["nuevoEmpresa"]) &&   
             preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ., ]+$/', $_POST["opoServicio"]) &&
             preg_match('/^[0-9., ]+$/', $_POST["opoCantidad"]) &&
-            preg_match('/^[0-9., ]+$/', $_POST["opoImporte"]) &&
-            preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ,. ]+$/', $_POST["opoDescripcion"])){
+            preg_match('/^[0-9., ]+$/', $_POST["opoImporte"])){
                 $tabla = "oportunidad";
                 $datos = array(
                     "codigo" => $_POST["opofolio"],
