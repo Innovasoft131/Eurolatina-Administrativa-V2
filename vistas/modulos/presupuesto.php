@@ -46,13 +46,14 @@
                 $valor = null;
                 $respuesta = ControladorPresupuesto::ctrMostrarPresupuestos($item , $valor);
                 foreach ($respuesta as $key => $value) {
+                  $accion = ControladorPresupuesto::ctrMostrarAccion("id",$value['idAccion']);
                     echo '<tr>
                             <td>'.$key.'</td>
                             <td>'.$value["codigo"].'</td>
                             <td>'.$value["empresa"].'</td>
                             <td>'.$value["importe"].'</td>
                             <td>'.$value["fecha"].'</td>
-                            <td>'.$value["idAccion"].'</td>
+                            <td>'.$accion["accion"].'</td>
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-success btnAsignar" idoportunidad="'.$value["id"].'" idcliente="'.$value["idCliente"].'" idusuario="'.$value["idUsuario"].'" data-toggle="modal" data-target="#asignarMaquina"><i class="fas fa-play"></i></button>
@@ -82,14 +83,27 @@
     <div class="modal-content">
       <form role="form" method="post" enctype="multipart/form-data" autocomplete="off">
           <div class="modal-header" style="background: #4682B4; color: white;">
-            <h5 class="modal-title" id="exampleModalLabel">Asignar</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Iniciar Presupuesto</h5>
             <button type="button" class="close cerrarAsignar" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="card-body">
-              <!-- Entrada de Nombre cliente -->
+              <!-- Entrada Codigo Presupuesto-->
+              <h5>Codigo Presupuesto</h5>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-barcode"></span>
+                    </div>
+                  </div>
+                  <input type="hidden" class="form-control" name="idcliente" id="idcliente">
+                  <input type="text" class="form-control" name="NombreClienteOportunidad" id="NombreClienteOportunidad" placeholder="Codigo Presupuesto">
+                </div>
+              </div>
+              <!-- Entrada Cliente -->
               <h5>Cliente</h5>
               <div class="form-group">
                 <div class="input-group">
@@ -98,83 +112,50 @@
                       <span class="fas fa-user"></span>
                     </div>
                   </div>
-                  <input type="hidden" class="form-control" name="idPedidoAsignar" id="idPedidoAsignar" placeholder="Cliente">
-                  <input type="hidden" class="form-control" name="idprimermodulodesglose" id="idprimermodulodesglose" placeholder="idprimermodulodesglose">
-                  <input type="hidden" class="form-control" name="idPrimerModulo" id="idPrimerModulo" placeholder="idPrimerModulo">
-
-                  <input type="text" class="form-control" name="NombreClienteAsignar" id="NombreClienteAsignar" placeholder="Cliente" readonly  >
+                  <input type="hidden" class="form-control" name="idcliente" id="idcliente">
+                  <input type="text" class="form-control" name="NombreClienteOportunidad" id="NombreClienteOportunidad" placeholder="Usuario" readonly  >
                 </div>
               </div>
-              <!-- Entrada de Nombre Pieza-->
+              <!-- Entrada de Empresa-->
+              <h5>Empresa</h5>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-building"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="empresa" id="empresa" placeholder="Empresa" readonly>
+                </div>
+              </div>
+              <!-- Entrada servicio-->
+              <h5>Servicio</h5>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fab fa-servicestack"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="servicio" id="servicio" placeholder="Servicio">
+                </div>
+              </div>
+            
+              <!-- Entrada de Modelo -->
               <h5>Modelo</h5>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-append">
-                    <div class="input-group-text">
-                      <span class="fas fa-socks"></span>
-                    </div>
-                  </div>
-                  <input type="text" class="form-control" name="idPiezaAsignar" id="idPiezaAsignar" placeholder="Pieza" hidden>
-                  <select class="form-control" name="piezaAsignar" id="piezaAsignar">
-                    
-                  </select>
-                </div>
-              </div>
-              
-              <!-- pedido desglosado -->
-              <div class="table-responsive">
-                <table class="table  table-bordered table-striped  " id="tbAsignar">
-                  <thead>
-                    <tr>
-                      <th style="width:10px">#</th>
-                      <th><input type="radio" name="" id=""></th>
-                      <th>Color</th>
-                      <th>Talla</th>
-                      <!-- th>Modelo</th -->
-                      <th>Cantidad</th>
-                    </tr>
-                  </thead>
-                  <tbody id="datos">
-                  </tbody>
-                </table>
-              </div>
-
-              <!-- Entrada de Linea-->
-              <h5>Línea</h5>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-append">
-                    <div class="input-group-text">
-                      <span class="fas fa-socks"></span>
-                    </div>
-                  </div>
-                  <input type="text" class="form-control" name="idLineaAsignar" id="idLineaAsignar" placeholder="Linea" hidden>
-                  <select class="form-control" name="LineaAsignar" id="LineaAsignar">
-                    
-                  </select>
-                </div>
-              </div>
-              
-
-              
-
-              <!-- Entrada de Maquina -->
-              <h5>Maquina</h5>
               <div class="form-group">
                 <div class="input-group autocompletar">
                   <div class="input-group-append">
                     <div class="input-group-text">
-                      <span class="fas fa-dumpster"></span>
+                      <span class="fas fa-tshirt"></span>
                     </div>
                   </div>
-                  <select class="form-control" name="slMaquinaAsignar" id="slMaquinaAsignar">
-                    
-                  </select>
+                  <input type="text" class="form-control" name="modelo" id="modelo" placeholder="Modelo">
                 </div>
               </div>
 
-              <!-- Entrada de Cantidad a maquina -->
-              <h5>Cantidad a maquina</h5>
+              <!-- Entrada de Cantidad  -->
+              <h5>Cantidad</h5>
               <div class="form-group">
                 <div class="input-group autocompletar">
                   <div class="input-group-append">
@@ -182,42 +163,60 @@
                       <span class="fas fa-hashtag"></span>
                     </div>
                   </div>
-                  <input type="hidden" class="form-control" name="cantidadPedido" id="cantidadPedido" placeholder="Cantidad a maquina">
-                  <input type="hidden" class="form-control" name="cantidadPrimerModulo" id="cantidadPrimerModulo" placeholder="Cantidad a maquina">
-                  <input type="hidden" class="form-control" name="cantidadMaquinasProceso" id="cantidadMaquinasProceso" placeholder="Cantidad a maquina">
-                  <input type="number" class="form-control" name="cantidadAsignarMaquina" id="cantidadAsignarMaquina" placeholder="Cantidad a maquina" require>
+                  <input type="text" class="form-control" name="cantidad" id="cantidad" placeholder="Cantidad">
                 </div>
               </div>
+              <!-- Entrada de Importe  Oportunidad-->
+              <h5>Importe Oportunidad</h5>
               <div class="form-group">
-                <button type="button" class="btn btn-success" id="btnAsignarMaquina"> <i class="fas fa-plus"></i> Asignar</button>
-                <br>
-                <br>
-                <div class="row">
-                  <!-- pedido desglosado -->
-                  <div class="table-responsive">
-                    <table class="table  table-bordered table-striped  " id="tbAsignarMaquina">
-                      <thead>
-                        <tr>
-                          <th style="width:10px">#</th>
-                          <th>No. Pedido</th>
-                          <th>Modelo</th>
-                          <th>Color</th>
-                          <th>Talla</th>
-                          <!-- th>Modelo</th -->
-                          <th>Cantidad</th>
-                          <th>Maquina Asignada</th>
-                          <th>Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody id="datos">
-                      </tbody>
-                    </table>
+                <div class="input-group autocompletar">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-money-bill"></span>
+                      
+                    </div>
                   </div>
+                  <input type="text" class="form-control" name="importe" id="importe" placeholder="Importe">
                 </div>
               </div>
-            </div>
-
-            
+              <h5>Importe Presupuesto</h5>
+              <div class="form-group">
+                <div class="input-group autocompletar">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-money-bill"></span>
+                      
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="importepresupuesto" id="importepresupuesto" placeholder="Importe">
+                </div>
+              </div>
+              <h5>Estado</h5>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-battery-empty"></span>
+                    </div>
+                  </div>
+                  <?php
+                  $item = null;
+                  $valor = null;
+                  $respuesta = ControladorPresupuesto::ctrMostrarEstados($item , $valor);
+                  ?>
+                  <select name="estado" class="form-control" id="estado" placeholder="Selecciona una opcion">
+                    
+                  <?php
+                    foreach ($respuesta as $key => $value) {
+                      
+                      echo '<option value="">'.$value['etapa'].'</option>';
+                }
+                ?>
+                  </select>
+                  <input type="hidden" class="form-control" name="empresa" id="idestado" placeholder="idestado" readonly>
+                </div>
+              </div>
+            </div> 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary cerrarAsignar" data-dismiss="modal">Cerrar</button>

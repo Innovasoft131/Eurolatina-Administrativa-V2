@@ -4,8 +4,8 @@ class ControladorPresupuesto{
     /*=============================================
 	INGRESO DE UNIDAD
 	=============================================*/
-    static public function ctrInsertUnidad(){
-        if(isset($_POST["nuevaUnidad"])){
+    static public function ctrInsertPresupuesto(){
+        if(isset($_POST["idoportunidad"])){
             if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaUnidad"])){
                 $tabla = "unidad";
                 $datos = array(
@@ -63,7 +63,7 @@ class ControladorPresupuesto{
     }
 
     /*=============================================
-	MOSTRAR UNIDADES
+	MOSTRAR OPORTUNIDADES PENDIENTES
 	=============================================*/
 
 	static public function ctrMostrarPresupuestos($item, $valor){
@@ -75,8 +75,21 @@ class ControladorPresupuesto{
 		return $respuesta;
 	}
 
+	/*=============================================
+	MOSTRAR ESTADOS
+	=============================================*/
+
+	static public function ctrMostrarEstados($item, $valor){
+
+		$tabla = "porcentajeexito";
+        
+		$respuesta = ModeloPresupuesto::mdlMostrarEstados($tabla, $item, $valor);
+        
+		return $respuesta;
+	}
+
     /*=============================================
-	EDITAR UNIDAD
+	EDITAR PRESUPUESTOS
 	=============================================*/
     static public function ctrUpdateUnidad(){
         if(isset($_POST["editarUnidad"])){
@@ -138,7 +151,7 @@ class ControladorPresupuesto{
     }
 
     /*=============================================
-	ELIMINAR UNIDAD
+	ELIMINAR PRESUPUESTO
 	=============================================*/
 
     static public function ctrEliminarUnidad(){
@@ -171,5 +184,16 @@ class ControladorPresupuesto{
 
 		}
     }
+    /*=============================================
+	MOSTRAR ACCION EN TABLA DE OPORTUNIDADES
+	=============================================*/
 
+	static public function ctrMostrarAccion($item, $valor){
+
+		$tabla = "tipoaccion";
+        
+		$respuesta = ModeloPresupuesto::mdlMostrarPresupuestos($tabla, $item, $valor);
+        
+		return $respuesta;
+	}
 }
