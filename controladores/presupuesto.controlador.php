@@ -5,14 +5,19 @@ class ControladorPresupuesto{
 	INGRESO DE UNIDAD
 	=============================================*/
     static public function ctrInsertPresupuesto(){
-        if(isset($_POST["idoportunidad"])){
-            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaUnidad"])){
-                $tabla = "unidad";
+        if(isset($_POST["idOportunidad"])){
+            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["importePresupuesto"])){
+                $tabla = "presupuesto";
                 $datos = array(
-                    "unidad" => $_POST["nuevaUnidad"]
+                    "idOportunidad" => $_POST["idOportunidad"],
+					"idUsuario" => $_SESSION["id"],
+					"idCliente" => $_POST["idclientePresupuesto"],
+					"empresa" => $_POST["empresaPresupuesto"],
+					"importe" => $_POST["importePresupuesto"],
+					"idEstado" => $_POST["estadoCliente"],
                 );
 
-                $respuestas = ModeloUnidad::mdlInsertUnidades($tabla,$datos);
+                $respuestas = ModeloPresupuesto::mdlInsertPresupuesto($tabla,$datos);
 
                 if($respuestas == "ok"){
                     echo '<script>
@@ -20,7 +25,7 @@ class ControladorPresupuesto{
 					Swal.fire({
 
 						icon: "success",
-						title: "¡la unidad ha sido guardado correctamente!",
+						title: "¡Se ha inició el proceso!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -28,7 +33,7 @@ class ControladorPresupuesto{
 
 						if(result.value){
 
-							window.location = "unidad";
+							window.location = "presupuesto";
 
 						}
 
@@ -43,14 +48,14 @@ class ControladorPresupuesto{
 				Swal.fire({
 
 						icon: "error",
-						title: "¡La unidad no puede ir vacío o llevar caracteres especiales!",
+						title: "¡El codigo no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
 					}).then(function(result){
 
 						if(result.value){
-							window.location = "unidad";
+							window.location = "presupuesto";
 
 						}
 
@@ -71,6 +76,59 @@ class ControladorPresupuesto{
 		$tabla = "oportunidad";
         
 		$respuesta = ModeloPresupuesto::mdlMostrarPresupuestos($tabla, $item, $valor);
+        
+		return $respuesta;
+	}
+
+
+
+	static public function ctrMostrarPresupuestoJoin($item, $valor, $item2 , $valor2){
+
+		$tabla = "oportunidad";
+        
+		$respuesta = ModeloPresupuesto::mdlMostrarPresupuestoJoin($tabla, $item, $valor, $item2 , $valor2);
+        
+		return $respuesta;
+	}
+
+	static public function ctrMostrarPresupuesto($item = "", $valor = ""){
+		if($_GET["oportunidad"]){
+
+			$tabla = "oportunidad";
+			$item = "id";
+			$valor = $_GET["oportunidad"];
+
+			
+        
+			$respuesta = ModeloPresupuesto::mdlMostrarPresupuesto($tabla, $item, $valor);
+		}else{
+			$tabla = "oportunidad";
+        
+			$respuesta = ModeloPresupuesto::mdlMostrarPresupuesto($tabla, $item, $valor);
+		}
+
+
+        
+		return $respuesta;
+	}
+
+	static public function ctrMostrarPresupuestoEnProceso($item = "", $valor = ""){
+		if($_GET["oportunidad"]){
+
+			$tabla = "oportunidad";
+			$item = "id";
+			$valor = $_GET["oportunidad"];
+
+			
+        
+			$respuesta = ModeloPresupuesto::mdlMostrarPresupuestoProceso($tabla, $item, $valor);
+		}else{
+			$tabla = "oportunidad";
+        
+			$respuesta = ModeloPresupuesto::mdlMostrarPresupuestoProceso($tabla, $item, $valor);
+		}
+
+
         
 		return $respuesta;
 	}
@@ -195,5 +253,56 @@ class ControladorPresupuesto{
 		$respuesta = ModeloPresupuesto::mdlMostrarPresupuestos($tabla, $item, $valor);
         
 		return $respuesta;
+	}
+
+
+	/*=============================================
+	MOSTRAR PRESUPUESTO EN PROCESO
+	=============================================*/
+
+	static public function ctrMostrarPresupuestosProceso($item, $valor){
+
+		$tabla = "presupuesto";
+        
+		$respuesta = ModeloPresupuesto::mdlMostrarPresupuestosProceso($tabla, $item, $valor);
+		
+		return $respuesta;
+	}
+
+	/*=============================================
+	Borrar PRESUPUESTO EN PROCESO
+	=============================================*/
+
+	static public function ctrBorrarPresupuesto(){
+
+		if(isset($_GET["idOportunidad"])){
+
+			$tabla ="oportunidad";
+			$datos = $_GET["idOportunidad"];
+
+
+			$respuesta = ModeloPresupuesto::mdlBorrarPresupuesto($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				Swal.fire({
+					icon: "success",
+					title: "El presupuesto ha sido borrado correctamente",
+					showConfirmButton: true,
+					confirmButtonText: "Cerrar"
+					}).then(function(result){
+								if (result.value) {
+
+								window.location = "Ppendientes";
+								}
+							})
+
+				</script>';
+
+			}
+
+		}
 	}
 }

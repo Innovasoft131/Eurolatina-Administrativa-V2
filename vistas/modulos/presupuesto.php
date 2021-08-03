@@ -9,9 +9,9 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active"><a href="inicio">Inicio</a></li>
-              <li class="breadcrumb-item "><a href="presupuesto">Pendientes</a></li>
-              <li class="breadcrumb-item"><a href="PEnProceso">En Proceso</a></li>
+              <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
+              <li class="breadcrumb-item active">En Proceso </li> 
+              <li class="breadcrumb-item"> <a href="Ppendientes">Terminados</a></li> 
             </ol>
           </div>
         </div>
@@ -36,31 +36,53 @@
                     <th>Empresa</th>
                     <th>Importe</th>
                     <th>Fecha</th>
-                    <th>Tarea</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                 <?php
-                $item = null;
-                $valor = null;
+                $item = "estado";
+                $valor = "Pendiente";
                 $respuesta = ControladorPresupuesto::ctrMostrarPresupuestos($item , $valor);
-                foreach ($respuesta as $key => $value) {
-                  $accion = ControladorPresupuesto::ctrMostrarAccion("id",$value['idAccion']);
+                if($_SESSION["perfil"] == "Especial"){
+                  foreach ($respuesta as $key => $value) {
+                  
                     echo '<tr>
                             <td>'.$key.'</td>
                             <td>'.$value["codigo"].'</td>
                             <td>'.$value["empresa"].'</td>
-                            <td>'.$value["importe"].'</td>
+                            <td>'.$value["empresa"].'</td>
                             <td>'.$value["fecha"].'</td>
-                            <td>'.$accion["accion"].'</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-success btnViewPresupuesto" idoportunidad="'.$value["id"].'" idcliente="'.$value["idCliente"].'" idusuario="'.$value["idUsuario"].'" ><i class="fas fa-play"></i></button>
+                                </div>
+                            </td>
+                        </tr>';
+                  }
+                }else{
+                  $item = "estado";
+                  $valor = "Pendiente";
+                  $item2 = "idUsuario";
+                  $valor2 = $_SESSION["id"];
+                  $respuesta = ControladorPresupuesto::ctrMostrarPresupuestoJoin($item , $valor, $item2 , $valor2 );
+                  foreach ($respuesta as $key => $value) {
+                  
+                    echo '<tr>
+                            <td>'.$key.'</td>
+                            <td>'.$value["codigo"].'</td>
+                            <td>'.$value["empresa"].'</td>
+                            <td>'.$value["empresa"].'</td>
+                            <td>'.$value["fecha"].'</td>
                             <td>
                                 <div class="btn-group">
                                     <button class="btn btn-success btnAsignar" idoportunidad="'.$value["id"].'" idcliente="'.$value["idCliente"].'" idusuario="'.$value["idUsuario"].'" data-toggle="modal" data-target="#asignarMaquina"><i class="fas fa-play"></i></button>
                                 </div>
                             </td>
                         </tr>';
+                  }
                 }
+
                 ?>
                 </tbody>
               </table>
@@ -84,7 +106,7 @@
       <form role="form" method="post" enctype="multipart/form-data" autocomplete="off">
           <div class="modal-header" style="background: #4682B4; color: white;">
             <h5 class="modal-title" id="exampleModalLabel">Iniciar Presupuesto</h5>
-            <button type="button" class="close cerrarAsignar" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close cerrarPresupueso" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -99,8 +121,8 @@
                       <span class="fas fa-barcode"></span>
                     </div>
                   </div>
-                  <input type="hidden" class="form-control" name="idcliente" id="idcliente">
-                  <input type="text" class="form-control" name="NombreClienteOportunidad" id="NombreClienteOportunidad" placeholder="Codigo Presupuesto">
+                  <input type="hidden" class="form-control" name="idOportunidad" id="idOportunidad">
+                  <input type="text" class="form-control" name="codigoPresupuesto" id="codigoPresupuesto" placeholder="Codigo Presupuesto">
                 </div>
               </div>
               <!-- Entrada Cliente -->
@@ -112,8 +134,8 @@
                       <span class="fas fa-user"></span>
                     </div>
                   </div>
-                  <input type="hidden" class="form-control" name="idcliente" id="idcliente">
-                  <input type="text" class="form-control" name="NombreClienteOportunidad" id="NombreClienteOportunidad" placeholder="Usuario" readonly  >
+                  <input type="hidden" class="form-control" name="idclientePresupuesto" id="idclientePresupuesto">
+                  <input type="text" class="form-control" name="NombreClientePresupuesto" id="NombreClientePresupuesto" placeholder="Usuario" readonly  >
                 </div>
               </div>
               <!-- Entrada de Empresa-->
@@ -125,7 +147,19 @@
                       <span class="fas fa-building"></span>
                     </div>
                   </div>
-                  <input type="text" class="form-control" name="empresa" id="empresa" placeholder="Empresa" readonly>
+                  <input type="text" class="form-control" name="empresaPresupuesto" id="empresaPresupuesto" placeholder="Empresa" readonly>
+                </div>
+              </div>
+              <!-- Entrada Accion Comercial-->
+              <h5>Tarea</h5>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fab fa-servicestack"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="servicioAccionComercial" id="servicioAccionComercial" placeholder="Tarea" readonly>
                 </div>
               </div>
               <!-- Entrada servicio-->
@@ -137,7 +171,7 @@
                       <span class="fab fa-servicestack"></span>
                     </div>
                   </div>
-                  <input type="text" class="form-control" name="servicio" id="servicio" placeholder="Servicio">
+                  <input type="text" class="form-control" name="servicioPresupuesto" id="servicioPresupuesto" placeholder="Servicio" readonly>
                 </div>
               </div>
             
@@ -150,7 +184,7 @@
                       <span class="fas fa-tshirt"></span>
                     </div>
                   </div>
-                  <input type="text" class="form-control" name="modelo" id="modelo" placeholder="Modelo">
+                  <input type="text" class="form-control" name="modeloPresupuesto" id="modeloPresupuesto" placeholder="Modelo" readonly>
                 </div>
               </div>
 
@@ -163,7 +197,7 @@
                       <span class="fas fa-hashtag"></span>
                     </div>
                   </div>
-                  <input type="text" class="form-control" name="cantidad" id="cantidad" placeholder="Cantidad">
+                  <input type="text" class="form-control" name="cantidadPresupuesto" id="cantidadPresupuesto" placeholder="Cantidad" readonly>
                 </div>
               </div>
               <!-- Entrada de Importe  Oportunidad-->
@@ -176,7 +210,7 @@
                       
                     </div>
                   </div>
-                  <input type="text" class="form-control" name="importe" id="importe" placeholder="Importe">
+                  <input type="text" class="form-control" name="importeOportunidad" id="importeOportunidad" placeholder="Importe" readonly>
                 </div>
               </div>
               <h5>Importe Presupuesto</h5>
@@ -188,10 +222,35 @@
                       
                     </div>
                   </div>
-                  <input type="text" class="form-control" name="importepresupuesto" id="importepresupuesto" placeholder="Importe">
+                  <input type="text" class="form-control" name="importePresupuesto" id="importePresupuesto" placeholder="Importe">
                 </div>
               </div>
-              <h5>Estado</h5>
+              <!-- Entrada de Estado  -->
+              <h5>Estado del cliente</h5>
+              <div class="form-group">
+                <div class="input-group autocompletar">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-hashtag"></span>
+                    </div>
+                  </div>
+                  <?php
+                  $item = null;
+                  $valor = null;
+                  $estado = EstadoControlador::ctrMostrarEstados($item , $valor);
+                  ?>
+                  <select name="estadoCliente" class="form-control" id="estadoCliente" placeholder="Selecciona una opcion">
+                    
+                  <?php
+                    foreach ($estado as $key => $value) {
+                      
+                      echo '<option value="'.$value['id'].'">'.$value['estado'].'</option>';
+                }
+                ?>
+                  </select>
+                </div>
+              </div>
+              <h5>Etapa</h5>
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-append">
@@ -204,7 +263,7 @@
                   $valor = null;
                   $respuesta = ControladorPresupuesto::ctrMostrarEstados($item , $valor);
                   ?>
-                  <select name="estado" class="form-control" id="estado" placeholder="Selecciona una opcion">
+                  <select name="estado" class="form-control" id="estado" placeholder="Selecciona una opcion" disabled>
                     
                   <?php
                     foreach ($respuesta as $key => $value) {
@@ -219,8 +278,15 @@
             </div> 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary cerrarAsignar" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary cerrarPresupueso" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary" style="background:#3c8dbc; color:white; border: 0px solid">Iniciar</button>
           </div>
+          <?php
+
+              $iniciarPresupuesto = new ControladorPresupuesto();
+              $iniciarPresupuesto -> ctrInsertPresupuesto();
+
+          ?> 
         </form>
     </div>
   </div>

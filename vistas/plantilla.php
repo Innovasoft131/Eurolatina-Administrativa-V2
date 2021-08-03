@@ -101,7 +101,8 @@ session_start();
                 $_GET["ruta"]=="estado" ||
                 $_GET["ruta"]=="Ppendientes" ||
                 $_GET["ruta"]=="PEnProceso" ||
-                $_GET["ruta"]=="tablero" ||
+                $_GET["ruta"]=="presupuestoView" ||
+                $_GET["ruta"]=="presupuestoInfo" ||
                 $_GET["ruta"]=="salir"){
                     include "modulos/".$_GET["ruta"].".php";
                 }else{
@@ -140,6 +141,7 @@ session_start();
             echo '<script src="vistas/js/oportunidad.js"></script>';
 
             echo '<script src="vistas/js/tipoaccion.js"></script>';
+            echo '<script src="vistas/js/presupuesto.js"></script>';
 
             echo '</body>';
         }else{

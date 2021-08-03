@@ -170,7 +170,7 @@
           <?php } ?>
  
           <?php 
-              if($_SESSION["perfil"] == "Especial"){
+              if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Administrador"){
 
             ?>
             <li class="nav-item">

@@ -146,8 +146,8 @@
                     </div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label for="opoExito">Descripción</label>
-                    <textarea id="opoDescripcion" name="opoDescripcion" placeholder="Descripción" class="form-control"></textarea>
+                    <label for="opoExito">Nota</label>
+                    <textarea id="opoDescripcion" name="opoDescripcion" placeholder="Nota" class="form-control"></textarea>
                     
                 </div>
                 <button type="submit" class="btn btn-info">Guardar</button>
