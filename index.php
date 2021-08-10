@@ -22,6 +22,7 @@ require_once "controladores/porcentajeExito.controlador.php";
 require_once "controladores/tipoaccion.controlador.php";
 require_once "controladores/oportunidad.controlador.php";
 require_once "controladores/presupuesto.controlador.php";
+require_once "controladores/general.controlador.php";
 
 // se requiere utilizar los modelos
 require_once "modelos/usuarios.modelo.php";
@@ -45,6 +46,7 @@ require_once "modelos/porcentajeexito.modelo.php";
 require_once "modelos/tipoaccion.modelo.php";
 require_once "modelos/oportunidad.modelo.php";
 require_once "modelos/presupuesto.modelo.php";
+require_once "modelos/general.modelo.php";
 
 // Librerias
 

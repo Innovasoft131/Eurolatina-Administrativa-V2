@@ -103,6 +103,7 @@ session_start();
                 $_GET["ruta"]=="PEnProceso" ||
                 $_GET["ruta"]=="presupuestoView" ||
                 $_GET["ruta"]=="presupuestoInfo" ||
+                $_GET["ruta"]=="reporteModelosTerminados" ||
                 $_GET["ruta"]=="salir"){
                     include "modulos/".$_GET["ruta"].".php";
                 }else{

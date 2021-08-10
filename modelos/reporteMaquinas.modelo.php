@@ -9,7 +9,7 @@ class ModeloReporteMaquinas{
 
 		$fechaInicial = date("$fechaInicial 00:00:00");
 		$fechaFinal = date("$fechaFinal H:i:s");
-		$stmt = Conexion::conectar()->prepare("select distinct pm.*, c.nombre as cliente from primerModulo pm join segundoModulo sm on sm.idPrimerModulo = pm.id join clientes c on c.id = pm.idCliente WHERE sm.estado = 0
+		$stmt = Conexion::conectar()->prepare("select distinct pm.*, c.nombre as cliente from primerModulo pm join segundoModulo sm on sm.idPrimerModulo = pm.id join clientes c on c.id = pm.idCliente WHERE sm.estado = 1
         and pm.fechainicio between '".$fechaInicial."' and '".$fechaFinal."'");
 
 		$stmt -> execute();

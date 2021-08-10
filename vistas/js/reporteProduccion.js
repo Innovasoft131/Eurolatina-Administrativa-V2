@@ -213,3 +213,28 @@ $(".daterangepicker.opensright .ranges li").on("click", function(){
   });
 
 
+  $(document).on("click","#btngenerarReporteGeneral",function(){
+    var fechaInicial = $("#fechaInicialTerminados").val();
+    var fechaFinal = $("#fechaFinalTerminados").val();
+    if(fechaInicial == "" || fechaFinal == ""){
+        Swal.fire('Selecciona una fecha');
+    }else{
+  
+      window.location = "index.php?ruta=reporteModelosTerminados&fechaInicial="+fechaInicial+"&fechaFinal="+fechaFinal;
+    }
+  
+  });
+
+  $(document).on("click", ".btnMostrarReporteTerminados", function(){
+
+
+    var idPedido = $(this).attr("idpedido");
+	  var hoy = $(this).attr("hoy");
+
+    $("#mostrarReporteTerminadoPdf").attr("data","ajax/modelos_terminados.pdf.php?idPedido="+idPedido+"&hoy="+hoy);
+});
+
+
+$(document).on("click", ".cerrarPdftablaTerminados", function(){
+	window.location = "reporteModelosTerminados";
+});
