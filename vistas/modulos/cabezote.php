@@ -44,7 +44,7 @@
         </a>
       </li>
      <!-- perfil de usuario -->
-     <li class="nav-item dropdown">
+     <li class="nav-item dropdown"> 
          <li class="dropdown user user-menu">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <img src="<?php if($_SESSION["foto"] != ""){ echo $_SESSION["foto"]; }else{ echo "vistas/img/usuarios/default/1.jpg";}  ?>" alt="" class="user-image">
