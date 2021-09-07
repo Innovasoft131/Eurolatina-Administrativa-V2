@@ -114,9 +114,12 @@
                     </div>
                   </div>
                   <input type="text" class="form-control" name="idClientePedido" id="idClientePedido" placeholder="Pieza" hidden>
+
                   <select class="form-control" name="clientePedido" id="clientePedido">
                     
                   </select>
+
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#agregarClientePedi" style="background: rgb(255 136 2); border: 0px solid ;"><i class="fas fa-plus"></i></button>
                 </div>
               </div>
               <!-- Entrada de Nombre Pieza-->
@@ -251,3 +254,153 @@
 </div>
 
 
+  <!-- Modal Registro del cliente -->
+  <div class="modal fade" id="agregarClientePedi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form role="form" method="post" enctype="multipart/form-data" autocomplete="off">
+          <div class="modal-header" style="background: rgb(255 136 2); color: white;">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar Cliente</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card-body">
+            <!-- Entrada de Nombre -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-user"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="nuevoNombre" placeholder="Nombre*" require>
+                  <input type="text" class="form-control" name="modelo" id="modelo" value="oportunidad" placeholder="modulo" hidden >
+                  <!-- input type="text" class="form-control" name="reFolio" id="reFolio"  placeholder="Folio" hidden >
+                  <input type="text" class="form-control" name="reEmpleado" id="reEmpleado"  placeholder="Empleado" hidden -->
+                </div>
+              </div>
+            <!-- Entrada de Usuario -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-key"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="nuevoUsuario" placeholder="Usuario*" require>
+                </div>
+              </div>
+            <!-- Entrada de Contraseña -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-lock"></span>
+                    </div>
+                  </div>
+                  <input type="password" class="form-control" name="nuevoPassword" placeholder="Contraseña*" autocomplete="off" require>
+                </div>
+              </div>
+
+            <!-- Entrada de Empresa -->
+            <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-key"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="nuevoEmpresa" placeholder="Empresa" require>
+                </div>
+              </div>
+
+            <!-- Entrada de tipo de cliente -->
+            <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-user"></span>
+                    </div>
+                  </div>
+                    <select id="nuevoTipo" name="nuevoTipo" class="form-control">
+                        <option selected>Selecciona un tipo</option>
+                        <option>Cliente</option>
+                    </select>
+                </div>
+            </div>
+
+              <!-- subir foto -->
+              <div class="form-group">
+                <div class="panel">Subir Foto</div>
+                <input type="file" name="nuevaFoto" id="nuevaFoto">
+                <p class="help-block">Peso máximo de la foto 200 MB</p>
+                <img src="vistas/img/usuarios/default/1.jpg" class="img-thumbnail" width="100px">
+              </div>
+            </div>
+
+            <!-- Entrada de Correo -->
+            <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-envelope"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="nuevoCorreo" placeholder="Correo" require>
+                </div>
+              </div>
+
+              <!-- Entrada de Telefono -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-phone"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="nuevoTelefono" placeholder="Telefono" require maxlength="10">
+                </div>
+              </div>
+
+              <!-- Entrada de Direccion -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-map-marker-alt"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="nuevoDireccion" placeholder="Direccion" require>
+                </div>
+              </div>
+            
+              <!-- Entrada de Pagina web -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-map-marker-alt"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="nuevoWeb" placeholder="Pagina Web" require>
+                </div>
+              </div>
+              
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary"   style="background: rgb(255 136 2); border: 0px solid ;">Guardar</button>
+          </div>
+          <?php
+          
+            $crearCliente = new ControladorClientes();
+            $crearCliente -> ctrCrearCliente();
+            
+
+          ?>
+        </form>
+    </div>
+  </div>
+</div>

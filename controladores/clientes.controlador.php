@@ -203,6 +203,14 @@ class ControladorClientes{
 		return $respuesta;
 	}
 
+	static public function ctrMostrarCliente($tabla, $valor){
+        $item = "nombre";
+        $respuesta = Modeloclientes::MdlMostrarCliente($tabla, $item, $valor);
+
+		return $respuesta;
+
+    }
+
 	/*=============================================
 	EDITAR USUARIO
 	=============================================*/

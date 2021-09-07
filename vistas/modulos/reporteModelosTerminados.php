@@ -44,7 +44,7 @@
               <div class="col-md-2">
                 <div class="form-floating">
                   <input type="button" class="btn btn-info" style="margin-top: 33px;" id="btngenerarReporteGeneral" value="Generar Reporte">
-                  <button type="button" class="btn btn-success" style="margin-top: 33px;"><i class="fas fa-file-excel"></i></button>
+                  <!-- button type="button" class="btn btn-success" style="margin-top: 33px;"><i class="fas fa-file-excel"></i></button -->
                 </div>
               </div>
 

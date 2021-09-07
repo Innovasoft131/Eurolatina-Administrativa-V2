@@ -116,7 +116,7 @@
               <li class="nav-item">
                 <a href="reporteModelosTerminados" class="nav-link">
                   <i class="nav-icon fas fa-chart-area"></i>
-                  <p>Modelos terminados</p>
+                  <p>Procesos terminados</p>
                 </a>
               </li>            
 
@@ -207,7 +207,7 @@
                 </a>
               </li>
 
-              <li class="nav-item">
+              <!-- li class="nav-item">
                 <a href="reporteErrores" class="nav-link">
                   <i class="nav-icon fas fa-chart-bar"></i>
                   <p>Reportes</p>
@@ -237,7 +237,7 @@
 
              
             </ul>
-              </li>              
+              </li -->              
 
               <li class="nav-item">
                 <a href="reporteErrores" class="nav-link">

@@ -78,6 +78,7 @@ session_start();
                 $_GET["ruta"]=="clientes" ||
                 $_GET["ruta"]=="maquinas" ||
                 $_GET["ruta"]=="pedidos" ||
+                $_GET["ruta"]=="registrarPedido" ||
                 $_GET["ruta"]=="import" ||
                 $_GET["ruta"]=="estado" ||
                 $_GET["ruta"]=="asignar" ||

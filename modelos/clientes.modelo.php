@@ -38,6 +38,38 @@ class Modeloclientes{
 	}
 
 	/*=============================================
+	MOSTRAR CLIENTES AUTOCOMPLETAR
+	=============================================*/
+
+	static public function MdlMostrarCliente($tabla, $item, $valor){
+		
+
+			$res = array();
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item LIKE '$valor%'");
+
+		//	$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+			$stmt -> execute();
+
+			if($stmt->rowCount()){
+				while ($r = $stmt -> fetch()) {
+					array_push($res, $r["nombre"]);
+					array_push($res, $r["id"]);
+					
+				}
+			}
+
+			return $res;
+
+
+		
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+	/*=============================================
 	REGISTRO DE CLIENTE
 	=============================================*/
 
