@@ -31,8 +31,8 @@ class AjaxClientes{
 	public function ajaxValidarCliente(){
 
 		$item = "usuario";
-		$valor = $this->validarUsuario;
-
+		$valor = $this->validarCliente;
+		
 		$respuesta = ControladorClientes::ctrMostrarclientes($item, $valor);
 
 		echo json_encode($respuesta);
@@ -143,6 +143,45 @@ class AjaxClientes{
 		
 		echo json_encode($respuesta);
     }
+
+	public $nombre;
+	public $usuario;
+	public $password;
+	public $empresa;
+	public $tipo;
+	public $correo;
+	public $telefono;
+	public $direccion;
+	public $web;
+	public $imagenNombre;
+	public $imagenTipo;
+
+
+
+	function ajaxRegistrarCliente(){
+	
+		$datos = array(
+				"nombre" => $this -> nombre,
+				"usuario" => $this -> usuario,
+				"password" => $this -> password,
+				"empresa" => $this -> empresa,
+				"tipo" => $this -> tipo,
+				"correo" => $this -> correo,
+				"telefono" => $this -> telefono,
+				"direccion" => $this -> direccion,
+				"web" => $this -> web,
+				"imagenNombre" => $this -> imagenNombre,
+				"imagenTipo" => $this -> imagenTipo
+		);
+
+
+	
+       
+
+        $respuesta = ControladorClientes::ctrRegistrarCliente($datos);
+		
+		echo json_encode($respuesta);
+    }
 }
 
 /*=============================================
@@ -160,7 +199,7 @@ if(isset($_POST["idCliente"])){
 VALIDAR NO REPETIR USUARIO
 =============================================*/
 
-if(isset( $_POST["validarCliente"])){
+if(isset($_POST["validarCliente"])){
 
 	$valCliente = new AjaxClientes();
 	$valCliente -> validarCliente = $_POST["validarCliente"];
@@ -238,5 +277,28 @@ if(isset( $_POST["validarClienteWeb"])){
 	$valCliente = new AjaxClientes();
 	$valCliente -> validarCliente = $_POST["validarClienteWeb"];
 	$valCliente -> ajaxValidarClienteWeb();
+
+}
+
+/*=============================================
+registrar cliente
+=============================================*/
+
+if(isset( $_POST["registrarCliente"])){
+	
+	$regCliente = new AjaxClientes();
+	$regCliente -> nombre	= $_POST["nombre"];
+	$regCliente -> usuario	= $_POST["usuario"];
+	$regCliente -> password	= $_POST["password"];
+	$regCliente -> empresa	= $_POST["empresa"];
+	$regCliente -> tipo	= $_POST["tipo"];
+	$regCliente -> correo	= $_POST["correo"];
+	$regCliente -> telefono	= $_POST["telefono"];
+	$regCliente -> direccion	= $_POST["direccion"];
+	$regCliente -> web	= $_POST["web"];
+	$regCliente -> imagenNombre	= $_FILES['imagen']['tmp_name'];
+	$regCliente -> imagenTipo	= $_FILES['imagen']['type'];
+	$regCliente -> ajaxRegistrarCliente($_FILES['imagen']);
+	
 
 }

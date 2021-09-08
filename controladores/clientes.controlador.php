@@ -3,7 +3,7 @@
 class ControladorClientes{
 
 	/*=============================================
-	REGISTRO DE USUARIO
+	REGISTRO DE CLIENTES
 	=============================================*/
 
 	static public function ctrCrearCliente(){
@@ -191,15 +191,152 @@ class ControladorClientes{
 	}
 
 	/*=============================================
+	REGISTRO DE CLIENTES POR AJAX
+	=============================================*/
+
+	static public function ctrRegistrarCliente($dato){
+
+		if(isset($dato["usuario"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $dato["nombre"]) &&
+			   preg_match('/^[a-zA-Z0-9]+$/', $dato["usuario"]) &&
+               preg_match('/^[a-zA-Z0-9]+$/', $dato["password"]) ){
+
+			   	/*=============================================
+				VALIDAR IMAGEN
+				=============================================*/
+
+				$ruta = "";
+
+				if(isset($dato["imagenNombre"])){
+
+					list($ancho, $alto) = getimagesize($dato["imagenNombre"]);
+
+					$nuevoAncho = 500;
+					$nuevoAlto = 500;
+
+					/*=============================================
+					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
+					=============================================*/
+
+					$directorio = "../vistas/img/clientes/".$dato["usuario"];
+					
+					
+					if(!file_exists($directorio)){
+						mkdir($directorio, 0755, true);
+					}
+					
+		
+	
+					
+				
+					
+
+					/*=============================================
+					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+					=============================================*/
+
+					if($dato["imagenTipo"] == "image/jpeg"){
+
+						/*=============================================
+						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+						=============================================*/
+
+						$aleatorio = mt_rand(100,999);
+
+						$ruta = "../vistas/img/clientes/".$dato["usuario"]."/".$aleatorio.".jpg";
+						$rutabd = "vistas/img/clientes/".$dato["usuario"]."/".$aleatorio.".jpg";
+
+						$origen = imagecreatefromjpeg($dato["imagenNombre"]);	
+						
+						
+
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+					
+
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+						imagejpeg($destino, $ruta);
+
+					}
+
+					if($dato["imagenTipo"] == "image/png"){
+
+						/*=============================================
+						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+						=============================================*/
+
+						$aleatorio = mt_rand(100,999);
+
+						$ruta = "../vistas/img/clientes/".$dato["usuario"]."/".$aleatorio.".png";
+
+						$rutabd = "vistas/img/clientes/".$dato["usuario"]."/".$aleatorio.".png";
+
+						$origen = imagecreatefrompng($dato["imagenNombre"]);						
+
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+						imagepng($destino, $ruta);
+
+					}
+
+				}
+
+				$tabla = "clientes";
+
+				$encriptar = crypt($dato["password"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+				$datos = array("nombre" => $dato["nombre"],
+					           "usuario" => $dato["usuario"],
+					           "password" => $encriptar,
+					           "foto"=>$rutabd,
+							   "correo" => $dato["correo"],
+                               "telefono" => $dato["telefono"],
+                               "direccion" => $dato["direccion"],
+							   "empresa" => $dato["empresa"],
+							   "web" => $dato["web"],
+							   "tipo" => $dato["tipo"]);
+				
+				$respuesta = Modeloclientes::mdlIngresarClienteAjax($tabla, $datos);
+
+				
+			
+				
+
+				return $respuesta;
+						
+				
+
+
+
+				
+
+
+			}else{
+				
+				return "error";
+				
+
+			}
+
+
+		}
+
+
+	}
+
+	/*=============================================
 	MOSTRAR USUARIO
 	=============================================*/
 
 	static public function ctrMostrarclientes($item, $valor){
 
 		$tabla = "clientes";
-
+		
 		$respuesta = Modeloclientes::MdlMostrarclientes($tabla, $item, $valor);
-
+		
 		return $respuesta;
 	}
 

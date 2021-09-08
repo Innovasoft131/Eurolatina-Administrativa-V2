@@ -129,6 +129,8 @@ $(document).on("click", ".btnMostrarPedidoInicio", function(){
 
 
 $(document).on("click", ".btngenerarPedido", function(){
+	window.location = "registrarPedido";
+	/*
     var datos = new FormData();
 	datos.append("mostarPiezas", "");
     $("#piezaPedido").html("");
@@ -152,6 +154,8 @@ $(document).on("click", ".btngenerarPedido", function(){
 		}
 
 	});
+
+	*/
 });
 
 function mostrarClientes(){
@@ -506,8 +510,7 @@ $(document).on("click", ".cerrarPdfPedidoInicio", function(){
 
 
 
-/* Registro de clientes */
-
+/* asignar nombre a input de model del registro del clientes */
 $(document).on("click", ".agregarClienteRp", function(){
 
 	var nombreCliente =  $("#rpCliente").val();
@@ -541,6 +544,42 @@ $(document).on("keyup", "#nuevoNombreRp", function(){
 	    		
 
 	    	}else if(respuesta == "ok"){
+				$(".alert").remove();
+			}
+
+	    }
+
+	});
+
+});
+
+/* validar si el cliente ya existe */
+$(document).on("keyup", "#nuevoUsuarioRp", function(){
+
+	$(".alert").remove();
+
+	var cliente = $(this).val();
+
+	var datos = new FormData();
+	datos.append("validarCliente", cliente);
+
+	 $.ajax({
+	    url:"ajax/clientes.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+			console.log(respuesta);
+	    	if(respuesta){
+
+	    		$("#nuevoUsuarioRp").parent().after('<div class="alert alert-warning">¡El nombre del clietne no puede ir vacío o llevar caracteres especiales!</div>');
+
+	    		
+
+	    	}else{
 				$(".alert").remove();
 			}
 
@@ -806,6 +845,74 @@ $(document).on("keyup", "#nuevoWebRp", function(){
 
 /* Guardar cliente */
 $(document).on("click", ".btnGuardarClienteRp", function(){
-	const inputFile = document.querySelector("#nuevaFotoRp");
-	console.log("imagen", inputFile.files[0]);
+
+	var nombre = $("#nuevoNombreRp").val();
+	var usuario = $("#nuevoUsuarioRp").val();
+	var password = $("#nuevoPasswordRp").val();
+	var empresa = $("#nuevoEmpresaRp").val();
+	var tipo = $("#nuevoTipoRp").val();
+	var correo = $("#nuevoCorreoRp").val();
+	var telefono = $("#nuevoTelefonoRp").val();
+	var direccion = $("#nuevoDireccionRp").val();
+	var web = $("#nuevoWebRp").val();
+	const imagen = document.querySelector("#nuevaFotoRp");
+
+
+	var datos = new FormData();
+	datos.append("registrarCliente", "");
+	datos.append("nombre", nombre);
+	datos.append("usuario", usuario);
+	datos.append("password", password);
+	datos.append("empresa", empresa);
+	datos.append("tipo", tipo);
+	datos.append("correo", correo);
+	datos.append("telefono", telefono);
+	datos.append("direccion", direccion);
+	datos.append("web", web);
+	datos.append("imagen", imagen.files[0]);
+
+	$.ajax({
+	    url:"ajax/clientes.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+			if(respuesta != "error"){
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: '¡El Cliente ha sido guardado correctamente!',
+					showConfirmButton: false,
+					timer: 1500
+				  });
+
+				$("#rpCliente").attr("idcliente", respuesta);
+				$('#agregarClienteRp').modal('toggle');
+
+				$("#nuevoNombreRp").val("");
+				$("#nuevoUsuarioRp").val("");
+				$("#nuevoPasswordRp").val("");
+				$("#nuevoEmpresaRp").val("");
+				//$("#nuevoTipoRp").val("");
+				$("#nuevoCorreoRp").val("");
+				$("#nuevoTelefonoRp").val("");
+				$("#nuevoDireccionRp").val("");
+				$("#nuevoWebRp").val("");
+			}else{
+				Swal.fire({
+					position: 'top-end',
+					icon: 'error',
+					title: '¡Error al guardar el cliente!',
+					showConfirmButton: false,
+					timer: 1500
+				  });
+
+				  
+			}
+			
+		}
+	});
 });

@@ -23,8 +23,8 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          
-        <button class="btn btn-primary btngenerarPedido" data-toggle="modal" data-target="#generarPedido" style="background: rgb(255 136 2); border: 0px solid ;"> <i class="fas fa-plus"></i> Generar Pedido </button>
+          <!-- data-toggle="modal" data-target="#generarPedido" -->
+        <button class="btn btn-primary btngenerarPedido"  style="background: rgb(255 136 2); border: 0px solid ;"> <i class="fas fa-plus"></i> Generar Pedido </button>
         <button class="btn btn-info btnImportPedidos" hidden> <i class="fas fa-plus"></i> Importar excel </button>
 
         </div>
