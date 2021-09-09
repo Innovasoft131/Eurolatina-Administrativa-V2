@@ -38,7 +38,9 @@
                     <label for="rpCliente">Cliente</label>
                     <div class="input-group col-md-12">
                       <input type="text" class="form-control" name="rpCliente" id="rpCliente" placeholder="Cliente">
-                      <button type="button" class="btn btn-info agregarClienteRp" data-toggle="modal" data-target="#agregarClienteRp" >Agregar Cliente</button>
+                      <button type="button" class="btn btn-info agregarClienteRp" data-toggle="modal" data-target="#agregarClienteRp" style="background: rgb(255 136 2); border: 0px solid ;"  title="Registrar Cliente">
+                        <i class="fas fa-save"></i>
+                      </button>
                     </div>
 
                 </div>
@@ -47,7 +49,9 @@
                     <label for="rpModelo">Modelo</label>
                     <div class="input-group col-md-12">
                       <input type="text" class="form-control" name="rpModelo" id="rpModelo" placeholder="Modelo">
-                      <button class="btn btn-info">Agregar Modelo</button>
+                      <button type="button" class="btn btn-info agregarModeloRp" data-toggle="modal" data-target="#agregarPiezaRp" style="background: rgb(255 136 2); border: 0px solid ;" title="Registrar Modelo">
+                        <i class="fas fa-save"></i>
+                      </button>
                     </div>
                 </div>
                 <br>
@@ -84,11 +88,13 @@
                     </div>
                     <label for="">Cantidad</label>
                     <div class="input-group col-md-12">
-                      <div class="col-10">
+                      <div class="col-11">
                         <input type="number" class="form-control" id="opoExito" placeholder="Cantidad">
                       </div>
-                      <div class="col-2">
-                        <button type="submit" class="btn btn-info">Agregar Modelo a pedido</button>
+                      <div class="col-1">
+                        <button type="submit" class="btn btn-info" title="registrar modelo a pedido">
+                          <i class="fas fa-save"></i>
+                        </button>
                       </div>
                       <br>
                         
@@ -97,6 +103,8 @@
                     </div>
 
                 </div>
+                <br>
+                <br>
                 <div class="form-group col-md-12">
                   <!-- pedido -->
                   <div class="table-responsive">
@@ -113,6 +121,11 @@
                       </thead>
                       <tbody id="datos">
                         <tr>
+                          <td>MK</td>
+                          <td>Azul</td>
+                          <td>CH</td>
+                          <td>20</td>
+                          <td>boton</td>
                         </tr>
                       </tbody>
                     </table>
@@ -285,7 +298,157 @@
 </div>
 
 
+  <!-- Modal Registro de Piezas -->
+  <div class="modal fade" id="agregarPiezaRp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form role="form" method="post" enctype="multipart/form-data" autocomplete="off">
+          <div class="modal-header" style="background: rgb(255 136 2); color: white;">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar Modelo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card-body">
+            <!-- Entrada de Nombre -->
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-socks"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="EditaridPieza" id="EditaridPieza" placeholder="Nombre" hidden>
+                  <input type="text" class="form-control" name="nuevoNombreModeloRp" id="nuevoNombreModeloRp" placeholder="Modelo" require>
+                </div>
+              </div>
+            <!-- Entrada de modelo -->
+              <div class="form-group" hidden>
+                <div class="input-group autocompletar">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-shoe-prints"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" name="nuevoModelo" id="nuevoModelo" placeholder="Modelo" require>
+                </div>
+              </div>
 
+
+              <!-- Entrada de color -->
+              <div class="form-group">
+                <div class="input-group autocompletarColor">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-shoe-prints"></span>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control color col-7" placeholder="Color" name="colorRp" id="colorRp">
+                  <button type="button" class="btn btn-info col-2" id="agregarColorp" title="agregar color a tabla" value="Agregar Color" style="background:#3c8dbc; color:white; border: 0px solid">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                  <button type="button" class="btn btn-info col-2 btnAgregarColoresRp"  title="Registrar color">
+                    <i class="fas fa-save"></i>
+                  </button>
+                </div>
+              </div>
+            <!-- Mostrar color -->
+
+            <div class="form-group">
+              <div class="input-group">
+              
+              
+                <table class="table table-bordered table-hover" id="tbColor">
+                </table>
+              </div>
+            </div>
+            <!-- Entrada de talla -->
+              <div class="form-group">
+                <div class="input-group ">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-ruler-horizontal"></span>
+                    </div>
+                  </div>
+                  <input type="number" class="form-control col-9" name="nuevotalla" id="nuevotalla" placeholder="Talla" require>
+                 
+                  <button type="button" class="btn btn-info col-2" id="agregarTalla" title="Agregar Talla a tabla" style="background:#3c8dbc; color:white; border: 0px solid">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+
+            <!-- Mostrar talla -->
+
+            <div class="form-group">
+              <div class="input-group">
+              
+              
+                <table class="table table-bordered table-hover" id="tbTalla">
+                </table>
+              </div>
+            </div>
+
+            <!-- Entrada de cantidad por pieza -->
+            <div class="form-group">
+              <div class="input-group ">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-ruler-horizontal"></span>
+                  </div>
+                </div>
+                <input type="number" class="form-control" name="agregarPorMinuto" id="agregarPorMinuto" placeholder="Minutos por pieza" require>
+                
+              </div>
+            </div>
+
+              <!-- Entrada de  precio -->
+              <div class="form-group" hidden>
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-money-bill-wave-alt"></span>
+                    </div>
+                  </div>
+                  <input type="number" class="form-control" name="nuevoPrecio" placeholder="Precio" >
+                </div>
+              </div>
+
+              <!-- Entrada de descripción -->
+              <div class="form-group ">
+                <div class="input-group autocompletar">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-file-alt"></span>
+                    </div>
+                  </div>
+                    <textarea class="form-control" name="nuevodescripcion" id="nuevodescripcion" placeholder="Descripción" rows="2"></textarea>
+                  
+                </div>
+              </div>
+
+              <!-- subir foto -->
+              <div class="form-group">
+                <div class="panel">Subir Foto</div>
+                <input type="file" name="nuevaFoto" class="foto" id="nuevaFoto">
+                <p class="help-block">Peso máximo de la foto 6 MB</p>
+                <img src="vistas/img/usuarios/default/1.jpg" class="img-thumbnail previsualizar" width="100px">
+              </div>
+            </div>
+
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary" style="background: rgb(255 136 2); border: 0px solid ;">Guardar</button>
+          </div>
+
+
+        </form>
+    </div>
+  </div>
+</div>
 
 
 

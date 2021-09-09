@@ -37,6 +37,21 @@ class AjaxModelos{
 		echo json_encode($respuesta);
 
 	}
+
+	/*=============================================
+	OBTENER MODELOS PARA AUTOCOMPLETADO
+	=============================================*/	
+
+	public $modelo;
+
+	function obtenerModelo(){
+        $valor = $this->modelo;
+        $tabla = "pieza";
+
+        $respuesta = Controladormodelos::ctrMostrarModelo($tabla, $valor);
+		
+		echo json_encode($respuesta);
+    }
 }
 
 /*=============================================
@@ -59,4 +74,15 @@ if(isset( $_POST["validarmodelo"])){
 	$valmodelo -> Validarmodelo = $_POST["validarmodelo"];
 	$valmodelo -> ajaxValidarmodelo();
 
+}
+
+
+/*=============================================
+OBTENER MODELO
+=============================================*/
+
+if(isset($_GET["modelo"])){
+    $ajaxModelo = new Ajaxmodelos();
+    $ajaxModelo -> modelo = $_GET["modelo"];
+    $ajaxModelo -> obtenerModelo();
 }

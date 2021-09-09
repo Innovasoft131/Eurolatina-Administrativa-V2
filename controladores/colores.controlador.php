@@ -63,6 +63,29 @@ class ControladorColores{
         }
     }
 
+    static public function ctrinsertColorAjax($valor, $item){
+        if(isset($valor)){
+                if( preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $valor) ){
+                    
+                    $tabla = "color";
+
+                    $datos = array(
+                        "color" => $valor
+                    );
+
+                    $respuesta = ColoresModelo::mdlInsertAjax($tabla, $datos);
+
+                    if($respuesta != "error"){
+                        return $respuesta;
+                    }   
+                }else{
+                    return "error";
+                }
+
+        }
+    }
+
+
     static public function ctrCRUDObtenerColores($item, $valor){
 
         $tabla = "color";

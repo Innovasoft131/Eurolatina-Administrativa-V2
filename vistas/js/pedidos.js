@@ -101,7 +101,225 @@ function autocompletarCliente(){
 
 }
 
+function autocompletarModelo(){
+	
+    const inputModelo = document.querySelector("#rpModelo");
+    let indexFocus = -1;
+    if(inputModelo !== undefined && inputModelo !== null ){
+        inputModelo.addEventListener('input', function(){
+            const modelo = this.value;
+            if(!modelo){ return false;}
+            cerrarLista();
+            // creando lista de sugerencias 
+            const divlist = document.createElement('div');
+            divlist.setAttribute('id',this.id + '-lista-autocompletar');
+            divlist.setAttribute('class', 'lista-autocompletar-items');
+    
+            this.parentNode.appendChild(divlist);
+    
+            // conexión a base de datos 
+            httpRequest('ajax/modelos.ajax.php?modelo=' + modelo, function(){
+               // console.log(this.responseText);
+               const arreglo = JSON.parse(this.responseText);
+                // avlidar el input contra el arreglo
+				$(".alert").remove();
+                if(arreglo.length == 0){ 
+					
+					$("#rpModelo").parent().after('<div class="alert alert-danger" role="alert">Modelo no encontrado</div>');
+					return false;
+				}else{
+					$(".alert").remove();
+					$("#rpModelo").attr("idmodelo", arreglo[1]);
+				}
+				;
+                arreglo.forEach(item => {
+                    if(item.substr(0, modelo.length).toUpperCase() == modelo.toUpperCase()){
+                        const elementoLista = document.createElement('div');
+                        elementoLista.innerHTML  = `<strong>${item.substr(0, modelo.length)}</strong>${item.substr(modelo.length)}`;
+                
+                        
+                        
+                        
+                        elementoLista.addEventListener('click',function(){
+                            inputModelo.value = this.innerText;
+							
+                            
+                            
+                            cerrarLista();
+                            return false;
+                        });
+    
+                        divlist.appendChild(elementoLista);
+                        
+                    }
+
+					
+                });
+    
+            });
+    
+           
+        });
+    
+        inputModelo.addEventListener('keydown',function(e){
+            const divlist = document.querySelector('#'+this.id +'-lista-autocompletar');
+            let items;
+            if(divlist){
+                items = divlist.querySelectorAll('div');
+    
+                switch (e.keyCode) {
+                    case 40: // tecla de abajo
+                        indexFocus++;
+                        if(indexFocus > items.length-1){
+                            indexFocus = items.length -1;
+                        }
+                        break;
+                    case 38: // tacla de arriba
+                        indexFocus--;
+                        if(indexFocus < 0){
+                            indexFocus = 0;
+                        }
+                        break;
+                    case 13: // presionas enter
+                        e.preventDefault();
+                        items[indexFocus].click();
+                        indexFocus = -1;
+                        break;
+                
+                    default:
+                        break;
+                }
+    
+                seleccionar(items, indexFocus);
+                return false;
+            }
+        });
+    
+        document.addEventListener('click', function(){
+            cerrarLista();
+        });
+
+    }
+    
+
+}
+
+function autocompletarColor(){
+	
+    const inputColor = document.querySelector("#colorRp");
+    let indexFocus = -1;
+    if(inputColor !== undefined && inputColor !== null ){
+        inputColor.addEventListener('input', function(){
+            const color = this.value;
+            if(!color){ return false;}
+            cerrarLista();
+            // creando lista de sugerencias 
+            const divlist = document.createElement('div');
+            divlist.setAttribute('id',this.id + '-lista-autocompletar');
+            divlist.setAttribute('class', 'lista-autocompletar-items');
+    
+            this.parentNode.appendChild(divlist);
+    
+            // conexión a base de datos 
+            httpRequest('ajax/colores.ajax.php?color=' + color, function(){
+               // console.log(this.responseText);
+               const arreglo = JSON.parse(this.responseText);
+                // avlidar el input contra el arreglo
+				$(".alert").remove();
+                if(arreglo.length == 0){ 
+					
+					$("#colorRp").parent().after('<div class="alert alert-danger" role="alert">Modelo no encontrado</div>');
+					return false;
+				}else{
+					$(".alert").remove();
+					$("#colorRp").attr("idcolor", arreglo[1]);
+				}
+				;
+                arreglo.forEach(item => {
+                    if(item.substr(0, color.length).toUpperCase() == color.toUpperCase()){
+                        const elementoLista = document.createElement('div');
+                        elementoLista.innerHTML  = `<strong>${item.substr(0, color.length)}</strong>${item.substr(color.length)}`;
+                
+                        
+                        
+                        
+                        elementoLista.addEventListener('click',function(){
+                            inputColor.value = this.innerText;
+							
+                            
+                            
+                            cerrarLista();
+                            return false;
+                        });
+    
+                        divlist.appendChild(elementoLista);
+                        
+                    }
+
+					
+                });
+    
+            });
+    
+           
+        });
+    
+        inputColor.addEventListener('keydown',function(e){
+            const divlist = document.querySelector('#'+this.id +'-lista-autocompletar');
+            let items;
+            if(divlist){
+                items = divlist.querySelectorAll('div');
+    
+                switch (e.keyCode) {
+                    case 40: // tecla de abajo
+                        indexFocus++;
+                        if(indexFocus > items.length-1){
+                            indexFocus = items.length -1;
+                        }
+                        break;
+                    case 38: // tacla de arriba
+                        indexFocus--;
+                        if(indexFocus < 0){
+                            indexFocus = 0;
+                        }
+                        break;
+                    case 13: // presionas enter
+                        e.preventDefault();
+                        items[indexFocus].click();
+                        indexFocus = -1;
+                        break;
+                
+                    default:
+                        break;
+                }
+    
+                seleccionar(items, indexFocus);
+                return false;
+            }
+        });
+    
+        document.addEventListener('click', function(){
+            cerrarLista();
+        });
+
+    }
+    
+
+}
+
+function cerrarLista(){
+    const item = document.querySelectorAll('.lista-autocompletar-items');
+
+    item.forEach(item =>{
+        item.parentNode.removeChild(item);
+    });
+    indexFocus= -1;
+}
+autocompletarModelo();
+
 autocompletarCliente();
+
+autocompletarColor();
 
 
 var nombrePieza;
@@ -915,4 +1133,62 @@ $(document).on("click", ".btnGuardarClienteRp", function(){
 			
 		}
 	});
+});
+
+/* Registro de Colores  */
+
+$(document).on("click", ".btnAgregarColoresRp", function(){
+	var color =  $("#colorRp").val();
+
+	if(color != "" && !document.getElementById("colorRp").value.trim()==""){
+
+		var datos = new FormData();
+		datos.append("registrarColor", "");
+		datos.append("color", color);
+
+		$.ajax({
+			url:"ajax/colores.ajax.php",
+			method:"POST",
+			data: datos,
+			cache: false,
+			contentType: false,
+			processData: false,
+			dataType: "json",
+			success:function(respuesta){
+				
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: '¡El color ha sido guardado correctamente!',
+					showConfirmButton: false,
+					timer: 1500
+				  });
+				  $(".alert").remove();
+				$("#colorRp").attr("idcolor", respuesta);
+			}
+		});
+	}else{
+		Swal.fire({
+			title: '¡El color no puede ir vacío o llevar caracteres especiales!',
+			showClass: {
+			  popup: 'animate__animated animate__fadeInDown'
+			},
+			hideClass: {
+			  popup: 'animate__animated animate__fadeOutUp'
+			}
+		  });
+	}
+	
+
+});
+
+
+
+
+/* Registro de Piezas (Modelos) */
+/* asignar nombre a input de modelo del registro del clientes */
+$(document).on("click", ".agregarModeloRp", function(){
+
+	var nombreModelo =  $("#rpModelo").val();
+	$("#nuevoNombreModeloRp").val(nombreModelo);
 });

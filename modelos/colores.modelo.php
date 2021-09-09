@@ -22,6 +22,30 @@ class ColoresModelo{
         $stmt = null;
     }
 
+
+        // insertar colores ajax
+        static public function mdlInsertAjax($tabla, $datos){
+
+            $cn = new Conexion();
+		    $cn = $cn->conectar();
+
+
+            $stmt = $cn->prepare("INSERT INTO $tabla(id, nombre, hexadecimal) VALUES (NULL, :nombre, NULL)");
+            $stmt->bindParam(":nombre", $datos["color"], PDO::PARAM_STR);
+    
+            if($stmt->execute()){
+
+                return $cn->lastInsertId();
+    
+            }else{
+                return "error";	
+            }
+    
+            $stmt->close();
+    
+            $stmt = null;
+        }
+
     // obtener colores con y sin WHERE
 
     static public function mdlObtenerColores($tabla, $item, $valor){
@@ -52,6 +76,7 @@ class ColoresModelo{
             if($stmt->rowCount()){
 				while ($r = $stmt -> fetch()) {
 					array_push($res, $r["nombre"]);
+                    array_push($res, $r["id"]);
 					
 				}
 			}

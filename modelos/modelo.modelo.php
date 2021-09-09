@@ -32,8 +32,8 @@ class Modelomodelo{
 
 	}
 
-    	/*=============================================
-	MOSTRAR USUARIOS
+    /*=============================================
+	MOSTRAR Modelos
 	=============================================*/
 
 	static public function mdlMostrarModelos($tabla, $item, $valor){
@@ -48,6 +48,42 @@ class Modelomodelo{
 				while ($r = $stmt -> fetch()) {
 					array_push($res, $r["nombre"]);
 					array_push($res, $r["descripcion"]);
+					
+				}
+			}
+
+			return $res;
+
+		}else{
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+		
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+
+	static public function mdlMostrarModelo($tabla, $item, $valor){
+		
+		if($item != null){
+			$res = array();
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item LIKE '$valor%'");
+
+			$stmt -> execute();
+
+			if($stmt->rowCount()){
+				while ($r = $stmt -> fetch()) {
+					array_push($res, $r["nombre"]);
+					array_push($res, $r["id"]);
 					
 				}
 			}

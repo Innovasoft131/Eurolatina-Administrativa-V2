@@ -92,6 +92,16 @@ class ControladorModelos{
 		return $respuesta;
 	}
 
+	static public function ctrMostrarModelo($tabla, $valor){
+
+        $item = "nombre";
+        $respuesta = Modelomodelo::mdlMostrarModelo($tabla, $item, $valor);
+
+		return $respuesta;
+
+    }
+
+
 	/*=============================================
 	EDITAR USUARIO
 	=============================================*/

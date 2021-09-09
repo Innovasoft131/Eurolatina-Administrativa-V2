@@ -28,6 +28,19 @@ class ColoresAjax{
         echo json_encode($respuesta);
     }
 
+    // registrar colores desde ajax
+    public function registrarColor(){
+
+        $valor = $this -> color;
+        $item = "nombre";
+
+
+        $respuesta = ControladorColores::ctrinsertColorAjax($valor, $item);
+
+        echo json_encode($respuesta);
+    }
+
+
 }
 
 if(isset($_POST["idColor"])){
@@ -47,4 +60,12 @@ if(isset($_GET["color"])){
 
     $ajaxColor -> obtenColor();
 
+}
+
+// registrar colores
+if(isset($_POST["registrarColor"])){
+
+    $respuesta = new ColoresAjax();
+    $respuesta -> color = $_POST["color"];
+    $respuesta -> registrarColor();
 }
