@@ -123,7 +123,12 @@
                     </div>
                   </div>
                   <input type="text" class="form-control color col-7" placeholder="Color" name="color" id="color">
-                  <input type="button" class="btn btn-info col-4" id="agregarColorp" value="Agregar Color" style="background:#3c8dbc; color:white; border: 0px solid">
+                  <button type="button" class="btn btn-info col-2" id="agregarColorp" title="Agregar color a tabla" style="background:#3c8dbc; color:white; border: 0px solid">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                  <button type="button" class="btn btn-info col-2 btnAgregarColores"  title="Registrar color">
+                    <i class="fas fa-save"></i>
+                  </button>
                 </div>
               </div>
             <!-- Mostrar color -->
@@ -144,8 +149,11 @@
                       <span class="fas fa-ruler-horizontal"></span>
                     </div>
                   </div>
-                  <input type="number" class="form-control col-7" name="nuevotalla" id="nuevotalla" placeholder="Talla" require>
-                  <input type="button" class="btn btn-info col-4" id="agregarTalla" value="Agregar Talla" style="background:#3c8dbc; color:white; border: 0px solid">
+                  <input type="number" class="form-control col-9" name="nuevotalla" id="nuevotalla" placeholder="Talla" require>
+                  
+                  <button type="button" class="btn btn-info col-2" id="agregarTalla" title="Agregar talla a tabla" style="background:#3c8dbc; color:white; border: 0px solid">
+                    <i class="fas fa-plus"></i>
+                  </button>
                 </div>
               </div>
 
@@ -273,7 +281,12 @@
                     </div>
                   </div>
                   <input type="text" class="form-control color col-7" placeholder="Color" name="coloresEditar" id="coloresEditar">
-                  <input type="button" class="btn btn-success col-4" id="editarColor" value="Agregar Color" style="background:#3c8dbc; color:white; border: 0px solid">
+                  <button type="button" class="btn btn-success col-2" id="editarColor" title="Agregar color a tabla" style="background:#3c8dbc; color:white; border: 0px solid">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                  <button type="button" class="btn btn-info col-2 btnAgregarColoresEditar"  title="Registrar color">
+                    <i class="fas fa-save"></i>
+                  </button>
                 </div>
               </div>
             <!-- Mostrar color -->
@@ -294,8 +307,11 @@
                       <span class="fas fa-ruler-horizontal"></span>
                     </div>
                   </div>
-                  <input type="number" class="form-control col-7" name="editartalla" id="editartalla" placeholder="Talla" require>
-                  <input type="button" class="btn btn-success col-4" id="btnEditarTalla" value="Agregar Talla" style="background:#3c8dbc; color:white; border: 0px solid">
+                  <input type="number" class="form-control col-9" name="editartalla" id="editartalla" placeholder="Talla" require>
+                  
+                  <button type="button" class="btn btn-success col-2" id="btnEditarTalla" title="Agregar talla a tabla" style="background:#3c8dbc; color:white; border: 0px solid">
+                    <i class="fas fa-plus"></i>
+                  </button>
                 </div>
               </div>
 

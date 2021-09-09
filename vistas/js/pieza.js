@@ -1079,3 +1079,97 @@ $(document).on("click", "#btnEditarTalla", function(){
 	});    
 });
 
+/* Registro de Colores  */
+
+$(document).on("click", ".btnAgregarColores", function(){
+	var color =  $("#color").val();
+
+	if(color != "" && !document.getElementById("color").value.trim()==""){
+
+		var datos = new FormData();
+		datos.append("registrarColor", "");
+		datos.append("color", color);
+
+		$.ajax({
+			url:"ajax/colores.ajax.php",
+			method:"POST",
+			data: datos,
+			cache: false,
+			contentType: false,
+			processData: false,
+			dataType: "json",
+			success:function(respuesta){
+				
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: '¡El color ha sido guardado correctamente!',
+					showConfirmButton: false,
+					timer: 1500
+				  });
+				  $(".alert").remove();
+				$("#color").attr("idcolor", respuesta);
+			}
+		});
+	}else{
+		Swal.fire({
+			title: '¡El color no puede ir vacío o llevar caracteres especiales!',
+			showClass: {
+			  popup: 'animate__animated animate__fadeInDown'
+			},
+			hideClass: {
+			  popup: 'animate__animated animate__fadeOutUp'
+			}
+		  });
+	}
+	
+
+});
+
+/* Registro de Colores al editar */
+
+$(document).on("click", ".btnAgregarColoresEditar", function(){
+	var color =  $("#coloresEditar").val();
+
+	if(color != "" && !document.getElementById("coloresEditar").value.trim()==""){
+
+		var datos = new FormData();
+		datos.append("registrarColor", "");
+		datos.append("color", color);
+
+		$.ajax({
+			url:"ajax/colores.ajax.php",
+			method:"POST",
+			data: datos,
+			cache: false,
+			contentType: false,
+			processData: false,
+			dataType: "json",
+			success:function(respuesta){
+				
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: '¡El color ha sido guardado correctamente!',
+					showConfirmButton: false,
+					timer: 1500
+				  });
+				  $(".alert").remove();
+				$("#color").attr("idcolor", respuesta);
+			}
+		});
+	}else{
+		Swal.fire({
+			title: '¡El color no puede ir vacío o llevar caracteres especiales!',
+			showClass: {
+			  popup: 'animate__animated animate__fadeInDown'
+			},
+			hideClass: {
+			  popup: 'animate__animated animate__fadeOutUp'
+			}
+		  });
+	}
+	
+
+});
+
